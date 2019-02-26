@@ -1,0 +1,7 @@
+Your text is Public speaking is very easy.
+1 2 6 15 31 56
+1 2 580
+10 55 DrEvil
+15 0
+5 4 1 3 6 2
+99

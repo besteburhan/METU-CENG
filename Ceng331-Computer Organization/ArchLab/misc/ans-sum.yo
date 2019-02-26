@@ -1,0 +1,34 @@
+                            | #Beste Burhan
+                            | #e2171395
+                            | 
+0x000:                      | .pos 0
+0x000: 30f40002000000000000 |     irmovq stack, %rsp
+0x00a: 30f72000000000000000 |     irmovq ele1,%rdi
+0x014: 805000000000000000   |     call sum_list
+0x01d: 00                   |     halt
+                            | 
+0x020:                      | .align 8
+0x020:                      |     ele1:
+0x020: 0a00000000000000     |       .quad 0x00a
+0x028: 3000000000000000     |       .quad ele2
+0x030:                      |     ele2:
+0x030: b000000000000000     |       .quad 0x0b0
+0x038: 4000000000000000     |       .quad ele3
+0x040:                      |     ele3:
+0x040: 000c000000000000     |       .quad 0xc00
+0x048: 0000000000000000     |       .quad 0
+                            | 
+0x050:                      | sum_list:
+0x050: 6300                 |     xorq %rax,%rax
+0x052: 6277                 |     andq %rdi,%rdi
+0x054: 745e00000000000000   |     jne loop
+0x05d: 90                   |     ret
+0x05e:                      | loop:
+0x05e: 50970000000000000000 |     mrmovq (%rdi),%r9
+0x068: 6090                 |     addq %r9,%rax
+0x06a: 50770800000000000000 |     mrmovq 8(%rdi),%rdi
+0x074: 6277                 |     andq %rdi,%rdi
+0x076: 745e00000000000000   |     jne loop
+0x07f: 90                   |     ret
+0x200:                      | .pos 0x200
+0x200:                      | stack:
