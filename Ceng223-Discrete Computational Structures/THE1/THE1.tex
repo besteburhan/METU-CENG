@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+%\usepackage{fitch}
+
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Beste Burhan \\
+Id Number : 2171395 \\
+
+% Write your answers below the section tags
+\section*{Answer 1} 
+
+\begin{table}[H]
+
+\small
+\centering
+\caption{ Truth Table for  $(\neg q \wedge (p \rightarrow q)) \rightarrow \neg p$ }
+\label{table:question 1/a}
+\begin{tabular}{|c c|c|c|c|c|c|}	%% specify column number
+\hline 							%% line draw
+\textbf{$p$} & \textbf{$q$} & \textbf{$\neg q$} & \textbf{$p \rightarrow q$} & \textbf{$\neg q \wedge (p \rightarrow q) $} & \textbf{$\neg p$} & \textbf{$(\neg q \wedge (p \rightarrow q)) \rightarrow \neg p$} \\
+\hline 
+\hline 
+T & T & F & T & F & F & T\\			%% rows distinguished with &
+T & F & T & F & F & F & T\\
+F & T & F & T & F & T & T\\
+F & F & T & T & T & T & T\\
+\hline 
+
+\end{tabular}
+
+\end{table}
+
+\begin{table}[H]
+
+\small
+\centering
+\caption{ Truth Table for  $((p \vee q) \wedge (\neg p \vee r)) \rightarrow (q \vee r) $ }
+\label{table:question 1/a}
+\begin{tabular}{|c c c|c|c|c|c|c|c|}	%% specify column number
+\hline 							%% line draw
+\textbf{$p$} & \textbf{$q$} & \textbf{$r$} & \textbf{$p \vee q$} & \textbf{$\neg p $} & \textbf{$\neg p \vee r$} & \textbf{$(p \vee q) \wedge (\neg p \vee r) $} & \textbf{$ q \vee r $} &\textbf{$((p \vee q) \wedge (\neg p \vee r)) \rightarrow (q \vee r)$} \\
+\hline 
+\hline 
+T & T & T & T & F & T & T & T & T\\			%% rows distinguished with &
+T & T & F & T & F & F & F & T & T\\
+T & F & T & T & F & T & T & T & T\\
+T & F & F & T & F & F & F & F & T\\
+F & T & T & T & T & T & T & T & T\\
+F & T & F & T & T & T & T & T & T\\
+F & F & T & F & T & T & F & T & T\\
+F & F & F & F & T & T & F & F & T\\
+\hline 
+
+\end{tabular}
+
+\end{table}
+
+
+
+\section*{Answer 2}
+
+$(p \rightarrow q) \vee (p \rightarrow r) \equiv (\neg p \vee q) \vee (p \rightarrow r)$ from Table 7 K.Rosen page 28.\\
+$(\neg p \vee q) \vee (p \rightarrow r) \equiv (\neg p \vee q) \vee (\neg p \vee r)$ from Table 7 K.Rosen page 28.\\
+$(\neg p \vee q) \vee (\neg p \vee r) \equiv \neg p \vee (q \vee r)$ from Table 6 K.Rosen page 27, Distributive Laws.\\
+$\neg p \vee (q \vee r) \equiv p \rightarrow (q \vee r)$ from Table 7 K.Rosen page 28.\\
+$p \rightarrow (q \vee r) \equiv \neg (q \vee r) \rightarrow \neg p$ from Table 7 K.Rosen page 28.\\
+$\neg (q \vee r) \rightarrow \neg p \equiv (\neg q \wedge \neg r) \rightarrow \neg p$ from Table 6 K.Rosen page 27, De Morgan's Laws.
+
+
+\section*{Answer 3}
+
+\textbf{1-a)} For all animal x, if x is a cat,then there exists an animal y such that y is a dog and x and y are friend.\\
+\textbf{1-b)} There exists an animal x such that x is a cat and x is friend with all dog.\\
+\\
+\textbf{2-a)} $\forall x \exists y (Eats(x,y) \rightarrow Customer(x))$\\
+\textbf{2-b)} $\exists x \exists y ( Chef(x) \wedge \neg Cooks(x.y))$\\
+\textbf{2-c)} $\exists x \forall y (Customer(x) \wedge Eats(x,y) \wedge \exists z_1 \forall z_2(Cooks(z_1,y) \wedge (Cooks(z_2,y) \rightarrow (z_2 = z_1))))$\\
+\textbf{2-d)} $\forall x \exists c ( Chef(x) \rightarrow (Chef(c) \wedge Knows(x,c) \wedge \exists z(Cooks(c,z)\wedge \neg Cooks(x,z)))) $
+
+
+
+\section*{Answer 4}
+
+
+When p is false and q is true, premises which are $(p \rightarrow q)$ and $(\neg p)$ become true. Since q is true, $\neg q$ is false. Therefore, by counterexample, the invalidity of the conclusion is proven.
+
+
+\section*{Answer 5}
+
+\begin{table}[H]
+	
+	\begin{tabular}{*6{l}}
+		$1$ & & & $p \rightarrow q$ & \textit{premise} & \\ 
+		$2$ & & & $q \rightarrow r$ & \textit{premise} & \\ 
+		$3$ & & & $r \rightarrow p$ & \textit{premise} & \\ \cline{2-6}
+		$4$ &\multicolumn{1}{|c}{} & & $q$ &\textit{assumption} &\multicolumn{1}{c|}{}\\ 
+		$5$ &\multicolumn{1}{|c}{} & & $r$ &\textit{$\rightarrow$e $ 2,4$} &\multicolumn{1}{c|}{}\\ 
+		$6$ &\multicolumn{1}{|c}{} & & $p$ &\textit{$\rightarrow$e  $3,5$} &\multicolumn{1}{c|}{}\\  \cline{2-6}
+		$7$ & & & $q \rightarrow p$ & $\rightarrow$i $4-6$ & \\
+		$8$ & & & $p \rightarrow r$ & $\rightarrow$i $6,5$ & \\
+		$9$ & & & $p \leftrightarrow q$ & $\leftrightarrow$i $1,7$ & \\
+		$10$ & & & $p \leftrightarrow r$ & $\leftrightarrow$i $3,8$ & \\
+		$11$ & & & $(p \leftrightarrow q) \wedge (p \leftrightarrow r)$ & $\wedge$i $9,10$ & \\
+	\end{tabular}
+\end{table}
+
+
+\section*{Answer 6}
+
+\begin{table}[H]
+	
+	\begin{tabular}{*6{l}}
+		$1$ & & & $\forall x (Q(x) \rightarrow R(x))$ & \textit{premise} & \\ 
+		$2$ & & & $\exists x (P(x) \rightarrow Q(x))$ & \textit{premise} & \\ 
+		$3$ & & & $\forall x P(x)$ & \textit{premise} & \\ \cline{2-6}
+		$4$ &\multicolumn{1}{|c}{} & $x_0$ & $P(x_0) \rightarrow Q(x_0)$ &\textit{assumption} &\multicolumn{1}{c|}{}\\ 
+		$5$ &\multicolumn{1}{|c}{} & & $P(x_0)$ &\textit{$\forall x$e $ 3$} &\multicolumn{1}{c|}{}\\ 
+		$6$ &\multicolumn{1}{|c}{} & & $Q(x_0)$ &\textit{$\rightarrow$e $ 4,5$} &\multicolumn{1}{c|}{}\\ 
+		$7$ &\multicolumn{1}{|c}{} &  & $Q(x_0) \rightarrow R(x_0)$ &$\forall x$e $1$ &\multicolumn{1}{c|}{}\\ 
+		$8$ &\multicolumn{1}{|c}{} & & $R(x_0)$ &\textit{$\rightarrow$e $ 6,7$} &\multicolumn{1}{c|}{}\\
+		$9$ &\multicolumn{1}{|c}{} &  & $P(x_0) \rightarrow R(x_0)$ &$\rightarrow $i $5,8$ &\multicolumn{1}{c|}{}\\ 
+		$10$ &\multicolumn{1}{|c}{} & & $\exists x (P(x) \rightarrow R(x))$ & $\exists x$i $9$ & \multicolumn{1}{c|}{}\\ \cline{2-6}
+		$11$ & & & $\exists x (P(x) \rightarrow R(x))$ & $\exists x$e $2,4-10$ & \\
+		
+	\end{tabular}
+\end{table}
+
+
+
+\end{document}
+
+​
+

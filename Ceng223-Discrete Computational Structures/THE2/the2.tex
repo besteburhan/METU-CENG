@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Beste Burhan \\
+Id Number : 2171395 \\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+
+\subsection*{a.}
+
+\begin{table}[H]
+
+\small
+\centering
+\caption{ Membership Table for  $ A \cap B \subseteq (A \cup \overline{B} )\cap (\overline{A} \cup B)$ }
+\label{table:question 1/a}
+\begin{tabular}{|c c|c c|c|c|c|c|}	%% specify column number
+\hline 	
+			
+					%% line draw
+\textbf{$A$} & \textbf{$B$} & \textbf{$\overline{A}$} & \textbf{$\overline{B}$} & \textbf{$A \cap B$} & \textbf{$A \cup \overline{B}$} & \textbf{$\overline{A }\cup B$} & \textbf{$(A \cup \overline{B})\cap(\overline{A }\cup B)  $}\\
+\hline 
+\hline 
+1 & 1 & 0 & 0 & 1 & 1 & 1 & 1\\			%% rows distinguished with &
+1 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\
+0 & 1 & 1 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 1 & 1 & 0 & 1 & 1 & 1\\
+\hline 
+
+\end{tabular}
+
+\end{table}
+
+\subsection*{b.}
+
+\begin{table}[H]
+
+\small
+\centering
+\caption{ Membership Table for  $\overline{A} \cap \overline{B} \subseteq (A \cup \overline{B} )\cap (\overline{A} \cup B)$ }
+\label{table:question 1/a}
+\begin{tabular}{|c c|c c|c|c|c|c|}	%% specify column number
+\hline 	
+			
+					%% line draw
+\textbf{$A$} & \textbf{$B$} & \textbf{$\overline{A}$} & \textbf{$\overline{B}$} & \textbf{$\overline{A} \cap \overline{B}$} & \textbf{$A \cup \overline{B}$} & \textbf{$\overline{A }\cup B$} & \textbf{$(A \cup \overline{B})\cap(\overline{A }\cup B)  $}\\
+\hline 
+\hline 
+1 & 1 & 0 & 0 & 0 & 1 & 1 & 1\\			%% rows distinguished with &
+1 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\
+0 & 1 & 1 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+\hline 
+
+\end{tabular}
+
+\end{table}
+
+
+
+
+\section*{Answer 2}
+
+\quad \quad Suppose that $A \cap B =  \emptyset$ ,$ f^{-1} ((A \cap B) \times C ) = \emptyset$. Since $f$ is a bijection, there are no two elements with same image (so for $f^{-1}$). Therefore,
+
+\quad $ f^{-1} (A \times C) \cap f^{-1} (B \times C)) = \emptyset = f^{-1}((A\cap B) \times C)$
+\vspace{10px}
+
+\quad Suppose that $t \in f^{-1} (A \times C) \cap f^{-1} (B \times C) $,then $y \in f^{-1} (A \times C)$ and $y \in f^{-1}(B \times C)$
+Hence, there exist $x_1$,$x_2$ such that $f^{-1} (\lbrace x_1,x_2 \rbrace) = y$ and there exist $x_3$,$x_4$ such that $f^{-1} (\lbrace x_3,x_4 \rbrace) = y$. Since f is a bijection, $x_1 = x_3$ , $x_2 = x_4$  and $x_1, x_3 \in A \cap B.$ $f^{-1} (\lbrace x_1,x_2 \rbrace) = y \in  f^{-1} ((A \cap B) \times C ) $. Therefore, $f^{-1} ((A \cap B) \times C ) \subseteq  f^{-1} (A \times C) \cap f^{-1} (B \times C)) $  and so\\$f^{-1} ((A \cap B) \times C ) =  f^{-1} (A \times C) \cap f^{-1} (B \times C)) $
+
+
+\section*{Answer 3}
+\subsection*{a.}
+\quad Since $f(-2) = f(2) = ln9 $, f is not one-to-one.
+$(-1) \in R $ but $ln(x^2 +5)$ can not be equal to $-1$ for any value of $x$, so f is not onto.
+
+\subsection*{b.}
+\quad To show that f is one to one , $f(x) =f(y) \rightarrow x=y$ should be shown
+\begin{gather*} 
+e^{e^{x^7}} = e^{e^{y^7}}\\
+e^{x^7} = e^{y^7}\\
+x^7=y^7\\
+x=y
+\end{gather*} so f is one to one.
+
+\quad $(-1) \in R$ but $e^{e^{x^7}}$ can not be equal to $-1$. Therefore, f is not onto.
+
+
+\section*{Answer 4}
+\subsection*{a.}
+
+\quad Since $A$ and $B$ are countable, $A \rightarrow N$ and $B \rightarrow N$ are injections. Therefore, there exist an injection $f: A \times B \rightarrow N^2 $
+
+\quad if I take $g: N^2 \rightarrow N$ and  $g(x,y)=3^x.5^y$ , assume that $a,b,c,d \in N$ 
+\begin{gather*} 
+f(a,b) = f(c,d)\\
+3^a.5^b = 3^c.5^d 
+\end{gather*} if and only if when $ a=c ,b=d$, so g is an injection.\\
+Therefore, $f\circ g : A \times B \rightarrow N$ is an injection.
+
+\subsection*{b.}
+
+\quad Assume that $B$ is countable.Because  $A \subseteq B$ and b is countable , I can list elements of $A$. It means that $A$ is countable, but it is not. There is a contradiction. Hence, $B$ is uncountable.
+
+\subsection*{c.}
+
+\quad There is an injection $f : B \rightarrow N$. Assume that $g : A \rightarrow B$, then $g$ is an injection. Since $f$ and $g$ are injections, then $f \circ g : A \rightarrow N$ is an injection.
+
+\section*{Answer 5}
+
+
+
+$ f_1(x) \leq Cf_2(x)$
+
+Assume that $f_1(x) ,\quad f_2(x) =x$ as a increasing functions when $x>1$
+
+
+
+\quad \quad \quad $0<f_1(x) \leq cx$
+
+\subsection*{a.}
+
+\quad $0 < ln(f_1(x)) \leq ln(cx) = lnc + lnx$ since lnc is a constant $ln(f_1(x))$ is $ \mathcal{O} (lnx)$
+
+\subsection*{b.}
+
+\quad $0< 3^{f_1(x)} \leq 3^{cx} \leq 3^c.3^x$ ($C=3^c$) so $ 3^{f_1(x)}$ is $\mathcal{O} (3^x) $ 
+\section*{Answer 6}
+
+\subsection*{a.}
+\begin{gather*}
+(3^x - 1) mod (3^y-1) = 3^{(x  mod y)}-1\\
+(3^x-1-3^{x mod y} +1) mod (3^y-1)= 0\\
+(3^x-3^{x mod y}) mod (3^y-1) =0\\
+3^y-1 \mid (3^x-3^{x mod y})\\
+x=ty+d \quad (for \quad x \quad mod \quad y)\\
+3^y-1 \mid 3^{ty+d}-3^d\\
+3^y-1 \mid 3^d(3^{ty}-1)\\
+(3^y-1) \mid 3^d((3^y-1).(3^{t-1}+3^{t-2}+..1))
+\end{gather*}
+ 
+\subsection*{b.}
+
+\begin{gather*} 
+277 = 2.123 + 31\\
+123 = 3.31 + 30\\
+31 = 1.30 + 1\\
+30 = 30.1  
+\end{gather*} since 1 divides 30, gcd(277,123) = gcd(123,31) = gcd(31,30) = gcd(30,1) = 1.
+
+\end{document}
+
+​
+

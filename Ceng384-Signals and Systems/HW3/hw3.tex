@@ -1,0 +1,343 @@
+\documentclass[10pt,a4paper, margin=1in]{article}
+\usepackage{fullpage}
+\usepackage{amsfonts, amsmath, pifont}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{tkz-euclide}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{amssymb}
+\pgfplotsset{compat=1.13}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=10mm,
+ right=10mm,
+ top=10mm,
+ bottom=10mm,
+ }
+ % Write both of your names here. Fill exxxxxxx with your ceng mail address.
+ \author{
+  Burhan, Beste\\
+  \texttt{e2171395@ceng.metu.edu.tr}
+}
+\title{CENG 384 - Signals and Systems for Computer Engineers \\
+Spring 2018-2019 \\
+Written Assignment 3}
+\begin{document}
+\maketitle
+
+
+
+\noindent\rule{19cm}{1.2pt}
+
+\begin{enumerate}
+
+\item 
+    \begin{enumerate}
+    % Write your solutions in the following items.
+    \item %write the solution of q1a
+    \ \\
+    N=4\\
+    $x[n] = \sum_{k=0}^{3} a_k e^{jk(2\pi/4)n}$\\
+    $a_k = \dfrac{1}{4} \sum_{n=0}^{3} x[n] e^{-jk(2\pi/4)n}$\\
+    \null \ \ \ \ = $\dfrac{1}{4}(x[0](e^{-jk(\pi/2).0}) + x[1](e^{-jk(\pi/2)}) + x[2](e^{-jk\pi}) + x[3](e^{-jk(3\pi/2)}) )$\\
+   \null \ \ \ \ = $\dfrac{1}{4}(0+ e^{-jk\pi/2} + 2 e^{-jk\pi} + e^{-jk3\pi/2})$\\
+   \null \ \ \ \ = $\dfrac{1}{4}(e^{-jk\pi/2} + 2 e^{-jk\pi} + e^{-jk3\pi/2})$ \ \ \ \ $0\le k \le 3$ for every 4 period\\
+   $a_0=1$\\
+   $a_1=-1/2$\\
+   $a_2=0$\\
+   $a_3=-1/2$\\
+   \begin{figure}[h!]
+   	\centering
+   	\begin{tikzpicture}[scale=1.1] 
+   	\begin{axis}[
+   	axis lines=middle,
+   	xlabel={$k$},
+   	ylabel={$\boldsymbol{a_k}$},
+   	xtick={ -5,-4,-3,-2,-1,0,1,2,3,4,5},
+   	ytick={-2,-1,0,...,1,2},
+   	ymin=-2, ymax=2,
+   	xmin=-5, xmax=5,
+   	every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+   	every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+   		 ]
+   	
+   	\addplot [ycomb, black, thick, mark=*] table [x={k}, y={ak}] {q1a.dat};
+   	\end{axis}
+   	 
+   	\end{tikzpicture}
+   	\caption{$a_k$}
+   	\label{fig:q1}
+   \end{figure}\\
+	\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[scale=1.1] 
+	\begin{axis}[
+	axis lines=middle,
+	xlabel={$k$},
+	ylabel={$\boldsymbol{\sphericalangle a_k}$},
+	xtick={ -5,-4,-3,-2,-1,0,1,2,3,4,5},
+	ytick={-2,-1,0,...,1,2},
+	ymin=-2, ymax=2,
+	xmin=-5, xmax=5,
+	every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+	every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+	]
+	
+	\addplot [ycomb, black, thick, mark=*] table [x={k}, y={ak}] {q1aa.dat};
+	\end{axis}
+	
+	\end{tikzpicture}
+	\caption{Phase of $a_k$}
+	\label{fig:q1}
+	\end{figure}\\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+    \item %write the solution of q1b
+    \ \\
+   \begin{enumerate}
+   	\item
+   	\ \\
+   	$y[n]=x[n]-\sum_{k=-\infty}^{\infty}\delta[n-4k+1]$\\
+   	\item
+   	\ \\
+   	 $y[n] = \sum_{k=0}^{3} a_k e^{jk(2\pi/4)n}$\\
+   	  $a_k = \dfrac{1}{4} \sum_{n=0}^{3} y[n] e^{-jk(2\pi/4)n}$\\
+   	  \null \ \ \ \ = $\dfrac{1}{4}(y[0](e^{-jk(\pi/2).0}) + y[1](e^{-jk(\pi/2)}) + y[2](e^{-jk\pi}) + y[3](e^{-jk(3\pi/2)}) )$\\
+   	  \null \ \ \ \ = $\dfrac{1}{4}(0+ e^{-jk\pi/2} + 2 e^{-jk\pi} +0)$\\
+   	  \null \ \ \ \ = $\dfrac{1}{4}(e^{-jk\pi/2} + 2 e^{-jk\pi})$\\
+   	  $a_0=3/4$\\
+   	  $a_1=\dfrac{-j-2}{4}$\\
+   	  $a_2=1/4$\\
+   	  $a_3=\dfrac{j-2}{4}$\\
+   	     \begin{figure}[h!]
+   	  	\centering
+   	  	\begin{tikzpicture}[scale=1.1] 
+   	  	\begin{axis}[
+   	  	axis lines=middle,
+   	  	xlabel={$k$},
+   	  	ylabel={$\boldsymbol{|a_k|}$},
+   	  	xtick={ -5,-4,-3,-2,-1,0,1,2,3,4,5},
+   	  	ytick={-2,-1,0,...,1,2},
+   	  	ymin=-2, ymax=2,
+   	  	xmin=-5, xmax=5,
+   	  	every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+   	  	every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+   	  	]
+   	  	
+   	  	\addplot [ycomb, black, thick, mark=*] table [x={k}, y={ak}] {q1b.dat};
+   	  	\end{axis}
+   	  	
+   	  	\end{tikzpicture}
+   	  	\caption{Magnitude of $a_k$}
+   	  	\label{fig:q1}
+   	  \end{figure}\\
+          \begin{figure}[h!]
+     	\centering
+     	\begin{tikzpicture}[scale=1.1] 
+     	\begin{axis}[
+     	axis lines=middle,
+     	xlabel={$k$},
+     	ylabel={$\boldsymbol{\sphericalangle a_k}$},
+     	xtick={ -5,-4,-3,-2,-1,0,1,2,3,4,5},
+     	ytick={-2,-1,0,...,1,2},
+     	ymin=-2, ymax=2,
+     	xmin=-5, xmax=5,
+     	every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+     	every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+     	]
+     	
+     	\addplot [ycomb, black, thick, mark=*] table [x={k}, y={ak}] {q1bb.dat};
+     	\end{axis}
+     	
+     	\end{tikzpicture}
+     	\caption{Phase of $a_k$}
+     	\label{fig:q1}
+     \end{figure}\\
+   	  \ \\
+   	  \ \\
+   	  
+   \end{enumerate}
+
+\end{enumerate}
+
+
+\item %write the solution of q2
+\ \\
+	$\sum_{k=-3}^{4} = 8$ \ \ \ \ ..from part b \\
+	Since period is 4,\\
+	\ \ $x[-3]=x[1],x[-2]=x[2],x[-1]=x[3],x[0]=x[4]$\\
+	\ \\
+	Therefore;
+	\null \ \ \ \ \qquad \ \qquad (1) \ \ \ $x[1]+x[2]+x[3]+x[4]=4$\\
+	\ \\
+	$\sum_{0}^{3} x[k](e^{-jk\pi/2} + e^{-jk3\pi/2}) = 4$ \ \ \ \ ..from part e\\ 
+	\null \qquad \ \qquad \ \qquad \ \qquad \ \qquad\ \ \ \ =$x[0]2+x[1](e^{-j\pi/2} + e^{-j3\pi/2}) + x[2](e^{-j\pi} + e^{-j3\pi}) + x[3](e^{-j3\pi/2} + e^{-j9\pi/2})$\\
+	\null \qquad \ \qquad \ \qquad \ \qquad \ \qquad\ \ \ \ =$2x[0]-2x[2]$\\
+	\null \qquad \ \qquad \ \qquad \ \qquad \ \qquad\ \ \ \ =$4$\\
+	$x[0]-x[2]=2$\\
+	since period is 4\\
+	\ \\
+	Therefore; 	\null \ \ \ \ \qquad \ \qquad (2) \ \ \ $x[4]-x[2]=2$\\
+	\ \\
+	from part c\\
+	$a_{-3}=a_{-15}=a_1$ and $a_{11}=a_3$ because of periodicty of $a_k$ \\
+	\null \qquad \ \qquad \ \qquad \qquad \qquad (3) $|a_1-a_3|=1$\\
+	\ \\
+	\ \\
+	$a_1 = \dfrac{1}{4} \sum_{n=1}^{4} x[n]e^{-jn\pi/2} $\\
+	\null \ \ \ \ = $\dfrac{1}{4} ( x[1](-j) + x[2](-1) + x[3](j) + x[4](1))$\\
+	\ \\
+	\ \\
+	$a_3 = \dfrac{1}{4} \sum_{n=1}^{4} x[n]e^{-jn3\pi/2} $\\
+	\null \ \ \ \ = $\dfrac{1}{4} ( x[1](j) + x[2](-1) + x[3](-j) + x[4](1))$\\
+	\ \\
+	Since (3) $|a_1-a_3|=1$\\
+	\null \quad $a_1-a_3 = \dfrac{2j}{4}(x[3]-x[1])$\\
+	\null \qquad \ \qquad \ \qquad \qquad \qquad (4a) $x[3]-x[1]=2$ \quad or \quad (4b) $x[3]-x[1]=-2 $ can be.\\
+	Therefore;
+	\null \qquad \ \qquad \ \ \ \ \ (5a) $a_1 = \dfrac{j}{2}+\dfrac{1}{2}$  \quad or \quad  (5b) $a_1 = \dfrac{-j}{2}+\dfrac{1}{2}$\\
+	\null \qquad \ \qquad \ \qquad \qquad \qquad (6a) $a_3 = \dfrac{-j}{2}+\dfrac{1}{2}$  \quad or \quad (6b) $a_1 = \dfrac{j}{2}+\dfrac{1}{2}$\\
+	\ \\
+	$a_4 = \dfrac{1}{4} \sum_{n=1}^{4} x[n]e^{-jn2\pi} $\\
+	\null \ \ \ \ = $\dfrac{1}{4} ( x[1](1) + x[2](1) + x[3](1) + x[4](1))$\ \ \ \ \ from (1) \ \ \ $x[1]+x[2]+x[3]+x[4]=4$\\
+		\null \qquad \ \qquad \ \qquad \qquad \qquad (7) $a_4 = 1$\\
+	\ \\
+	Since one of the coefficients is zero\\
+	 \null \qquad \ \qquad \ \qquad \qquad \qquad  (8) $a_2=0$\\
+	 \ \\
+	 $a_2 = \dfrac{1}{4} \sum_{n=1}^{4} x[n]e^{-jn\pi} $\\
+	 \null \ \ \ \ = $\dfrac{1}{4} ( x[1](-1) + x[2](1) + x[3](-1) + x[4](1))$\\
+	 $( x[1](-1) + x[2](1) + x[3](-1) + x[4](1))=0$ and from (1) $x[1]+x[2]+x[3]+x[4]=4$\\
+	 \ \\
+	 \null \qquad \ \qquad \ \qquad \qquad \qquad (9) $x[3]+x[1]=1$\\
+	  and from (4a) $x[3]-x[1]=2$\\
+	  \ \\
+		\null \qquad \ \qquad ** $x[3]=2$\\
+		\null \qquad \ \qquad  ** $x[1]=0$\\
+	 \ \\
+		\null \qquad \ \qquad  $x[2] = \sum_{k=1}^{4}a_ke^{jk\pi}$\\
+	 	\null \qquad \ \qquad \null \ \ \ \quad = $a_1(-1)+a_2(1)+a_3(-1)+a_4(1)$\\
+		\null \qquad \ \qquad  **$x[2]$ = 0\\
+	 \ \\
+		\null \qquad \ \qquad  from (2) $x[4]- x[2]=2$\\
+		\null \qquad \ \qquad  ** $x[4]=2$\\
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}[scale=1.1] 
+			\begin{axis}[
+			axis lines=middle,
+			xlabel={$n$},
+			ylabel={$\boldsymbol{x_n}$},
+			xtick={ -5,-4,-3,-2,-1,0,1,2,3,4,5},
+			ytick={-2,-1,0,...,1,2},
+			ymin=-2, ymax=2,
+			xmin=-5, xmax=5,
+			every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+			every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+			]
+			
+			\addplot [ycomb, black, thick, mark=*] table [x={k}, y={ak}] {q2a.dat};
+			\end{axis}
+			
+			\end{tikzpicture}
+			\caption{$x_n$}
+			\label{fig:q1}
+		\end{figure}\\
+		\ \\
+	 and from (4b) $x[3]-x[1]=-2$\\
+	 \ \\
+	\null \qquad \ \qquad ** $x[3]=0$\\
+	\null \qquad \ \qquad  ** $x[1]=2$\\
+	\ \\
+	\null \qquad \ \qquad  $x[2] = \sum_{k=1}^{4}a_ke^{jk\pi}$\\
+	\null \qquad \ \qquad \null \ \ \ \quad = $a_1(-1)+a_2(1)+a_3(-1)+a_4(1)$\\
+	\null \qquad \ \qquad  **$x[2]$ = 0\\
+	\ \\
+	\null \qquad \ \qquad  from (2) $x[4]- x[2]=2$\\
+	\null \qquad \ \qquad  ** $x[4]=2$\\
+	\ \\
+		\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}[scale=1.1] 
+		\begin{axis}[
+		axis lines=middle,
+		xlabel={$x$},
+		ylabel={$\boldsymbol{x_n}$},
+		xtick={ -5,-4,-3,-2,-1,0,1,2,3,4,5},
+		ytick={-2,-1,0,...,1,2},
+		ymin=-2, ymax=2,
+		xmin=-5, xmax=5,
+		every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+		every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+		]
+		
+		\addplot [ycomb, black, thick, mark=*] table [x={k}, y={ak}] {q2aa.dat};
+		\end{axis}
+		
+		\end{tikzpicture}
+		\caption{$x_n$}
+		\label{fig:q1}
+	\end{figure}\\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\item  
+\ \\
+$x(t) = h(t)*x(t)+h(t)*r(t)$ \quad \qquad $\dfrac{-K2\pi}{2} \le w \le \dfrac{K2\pi}{2}$ \\
+$X(jw) = H(jw)X(jw) + H(jw)R(jw)$   \quad \qquad $\dfrac{-K2\pi}{2} \le w \le \dfrac{K2\pi}{2}$\\
+$R(jw)=0$  for $ \dfrac{-K2\pi}{2} \le w \le \dfrac{K2\pi}{2} $\\
+$X(jw) = H(jw)X(jw)$  \quad \qquad $\dfrac{-K2\pi}{2} \le w \le \dfrac{K2\pi}{2}$ \\
+$H(jw)=1$  \quad \qquad $\dfrac{-K2\pi}{2} \le w \le \dfrac{K2\pi}{2}$ \\
+$h(t) = \delta(t) $  \quad \qquad $\dfrac{-K2\pi}{2} \le w \le \dfrac{K2\pi}{2}$ \\
+
+
+\item 
+\ \\
+    \begin{enumerate}
+    \item %write the solution of q4a
+    \ \\
+    $y(t) = \int_{}^{} (4x(t)-5y(t)+(\int (x(t)-6y(t))dt))dt$\\
+    $\dfrac{d y(t)}{dt}= 4x(t) - 5y(t) + \int (x(t)-6y(t))dt$\\
+    $\dfrac{d^2 y(t)}{dt^2} = \dfrac{4d x(t)}{dt} - \dfrac{5d y(t)}{dt} + x(t) -6y(t)$\\
+    $\ddot{y}(t) + 5\dot{y}(t)-6y(t) = x+4\dot{x}(t)$\\
+    \ \\
+  $Y(jw)=H(jw)X(jw)$\\
+  $H(jw)=\dfrac{1+4(jw)}{-6+5(jw)+(jw)^2}$\\
+  $H(jw)=\dfrac{1+4(jw)}{(jw-3)(jw-2)}$\\
+   \item %write the solution of q4b
+  \ \\
+  $x(t)=\delta(t)$\\
+  $X(jw)=1$\\
+  $H(jw)=\dfrac{1+4(jw)}{(jw-3)(jw-2)}= \dfrac{-13}{3-jw}+\dfrac{9}{2-jw}$\\
+  $h(t)=(-13e^{3t}+9e^{2t})u(-t)$
+  \item %write the solution of q4a
+  \ \\
+  $X(jw)=\dfrac{1}{4}\dfrac{1}{jw+1/4}=\dfrac{1}{(4jw+1)}$\\
+   $Y(jw)=H(jw)X(jw)$\\
+   $Y(jw)=\dfrac{1+4(jw)}{-6+5(jw)+(jw)^2}.\dfrac{1}{(4jw+1)}$\\
+   $Y(jw)=\dfrac{1}{(jw-3)(jw-2)}=\dfrac{-1}{3-jw}+\dfrac{1}{2-jw}$\\
+ $y(t)= (e^{2t}-e^{3t})u(-t)$
+    \end{enumerate}
+
+
+
+\end{enumerate}
+\end{document}
+

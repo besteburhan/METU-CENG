@@ -1,0 +1,12 @@
+erbil 5
+ezgi 5
+cagri 3
+utku 6
+erol 5
+onur 3
+tolga 4
+merve 4
+kadir 2
+huseyin 2
+alper 1
+tankut 1

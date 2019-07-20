@@ -1,0 +1,230 @@
+\documentclass[10pt,a4paper, margin=1in]{article}
+\usepackage{fullpage}
+\usepackage{amsfonts, amsmath, pifont}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{tkz-euclide}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=10mm,
+ right=10mm,
+ top=10mm,
+ bottom=10mm,
+ }
+ % Write both of your names here. Fill exxxxxxx with your ceng mail address.
+ \author{
+  Öztürk, Kürşat\\
+  \texttt{e2171874@ceng.metu.edu.tr}
+  \and
+  Burhan, Beste\\
+  \texttt{e2171395@ceng.metu.edu.tr}
+}
+\title{CENG 384 - Signals and Systems for Computer Engineers \\
+Spring 2018-2019 \\
+Written Assignment 1}
+\begin{document}
+\maketitle
+
+
+
+\noindent\rule{19cm}{1.2pt}
+
+\begin{enumerate}
+
+\item 
+    \begin{enumerate}
+    % Write your solutions in the following items.
+    \item %write the solution of q1a
+    \ \\
+    $y(t)= \int_{}^{} (x(t)-4y(t))dt$\\
+    $\dfrac{dy(t)}{dt} = x(t)-4y(t)$\\
+    $\dot{y}(t)+ 4y(t) = x(t)$
+    \item %write the solution of q1b
+    \ \\
+    $y(t) = y_h(t)+y_p(t)$\\
+    Since initially at rest ;
+    
+    \ \ $y(0)=\dot{y}(0)=\ddot{y}(0)=.. = 0$\\
+    Homogeneous solution;\\
+    \null \ \ $y_h(t) = Ke^{\alpha t}$\\
+    \null \ \ $(K\alpha+4K) e^{\alpha t}$\\\
+    \null  \ \ $\alpha = -4$\\
+    \null \ \ $y_h(t) = Ke^{-4t}$\\
+    Particular solution;\\
+    \null \ \ $x(t) = (e^{-t}+e^{-2t})u(t)$\\
+    \null \ \ $ y_p(t) = a e^{-t}+be^{-2t}$ , \ \quad for $t>0$\\
+    \null \ \ $ -ae^{-t}-2b e^{-2t}+4ae^{-t}+4b e^{-2t}= e^{-t}+e^{-2t}$\\
+    \null \ \ $ 3a e^{-t}+ 2b e^{-2t}= e^{-t}+e^{-2t}$\\
+    \null \ \ $a=1/3 \quad b=1/2$\\
+    \null \ \ $ y_p(t) = \dfrac{1}{3}e^{-t}+\dfrac{1}{2}e^{-2t}$, \ \quad for $t>0$\\
+    
+    $y(t)= Ke^{-4t}+\dfrac{1}{3}e^{-t}+\dfrac{1}{2}e^{-2t}$, \ \quad for $t>0$\\
+    $y(0)=0$\\
+    $0=K+\dfrac{1}{3}+\dfrac{1}{2}$\\
+    $K=-5/6$\\
+    $y(t)=\Big[ \dfrac{-5}{6}e^{-4t}+\dfrac{1}{3}e^{-t}+\dfrac{1}{2}e^{-2t}\Big]u(t)$
+
+\end{enumerate}
+
+
+\item %write the solution of q2
+\ \\
+	\begin{enumerate}
+		\item 
+		\ \\ 
+		$x[n] = \delta[n-1]-3\delta[n-2]+\delta[n-3]$\\
+		$h[n] = \delta[n+1]+2\delta[n]-3\delta[n-1]$\\
+		\ \\
+		$y[n]=x[n]*h[n]=\sum_{k=-\infty}^{\infty}h[k]x[n-k]$\\
+		$y[n]=h[-1]x[n+1]+h[0]x[n]+h[1]x[n-1]$\\
+		\null \qquad $=x[n+1]+2x[n]+3x[n-1]$\\
+		$y[n]=(\delta[n] - 3\delta[n-1]+\delta[n-2])+(2\delta[n-1]-6\delta[n-2]+2\delta[n-3])+(-3\delta[n-2]+9\delta[n-3]-3\delta[n-4])$\\
+		\null \qquad $=\delta[n]-\delta[n-1]-8\delta[n-2]+11\delta[n-3]-3[n-4]$\\
+		\ \\
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}[scale=1.1] 
+			\begin{axis}[
+			axis lines=middle,
+			xlabel={$n$},
+			ylabel={$\boldsymbol{y[n]}$},
+			xtick={ -1,0,1,2,3,4,5},
+			ytick={-8,-7,-6,...,-2,-1,-0,1,...,11},
+			ymin=-8, ymax=11,
+			xmin=-1, xmax=5,
+			every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+			every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+			grid,	]
+			\addplot [ycomb, black, thick, mark=*] table [x={n}, y={yn}] {q2a.dat};
+			\end{axis}
+			\end{tikzpicture}
+			\caption{$y[n]=\delta[n]-\delta[n-1]-8\delta[n-2]+11\delta[n-3]-3[n-4]$.}
+			\label{fig:q1}
+		\end{figure}\\
+	\null \\
+	\null \\
+	
+		\item 
+		\ \\
+		$x(t)=u(t)+u(t-1)$\\
+		$h(t)=(e^{-2t}cost )u(t)$\\
+		$\dfrac{dx(t)}{dt}=\delta(t)+\delta(t-1)$\\
+		$y(t)=\dfrac{dx(t)}{dt}*h(t)=\int_{0}^{\infty}e^{-2\tau}cos\tau \delta(t-\tau)d\tau + \int_{0}^{\infty}e^{-2\tau}cos\tau \delta(t-1-\tau)d\tau$\\
+		\null \qquad \qquad \qquad \qquad \ = $e^{-2t}cost u(t) + e^{-2(t-1)}cos(t-1)u(t-1)$
+	\end{enumerate}
+\item  
+\ \\
+\begin{enumerate}
+	\item %write the solution of q4a
+	\ \\
+	$x(t)=e^{-t}u(t)$\\
+	$h(t)= e^{-3t}u(t)$\\
+	
+	$y(t)=x(t)*h(t)=\int_{0}^{t} e^{-\tau}e^{-3(t-\tau)}d\tau$\\
+	\null \qquad \qquad \qquad \quad \ \ =$ e^{-3t}\int_{0}^{t}e^{2\tau}d\tau$\\
+	\null \qquad \qquad \qquad \quad \ \ =$ e^{-3t}\Big(\dfrac{e^{2t}}{2}- \dfrac{1}{2}\Big) $\\
+	$y(t)$=$\Big[\dfrac{e^{-t}}{2}-\dfrac{e^{-3t}}{2}\Big]u(t)$\\
+	
+	\item %write the solution of q4b
+	\ \\
+	$x(t)=u(t-1)-u(t-2)$\\
+	$h(t)=e^tu(t)$\\
+	
+	$y(t)=x(t)*h(t)=\int_{-\infty}^{\infty}h(\tau)x(t-\tau)d\tau$\\
+	\null \qquad \qquad \qquad \quad \ \ = $\int_{0}^{\infty}e^\tau(u(t-\tau-1)-u(t-\tau-2))d\tau$\\
+	\null \qquad $t\le 1$,this convolution evalutates zero.\\
+	For $1< t \le 2$\\
+	\null \qquad \qquad $y(t)= \int_{0}^{t-1}e^\tau d\tau = e^{t-1}-1$\\
+	For $t>2$\\
+	\null \qquad \qquad $y(t) = \int_{t-2}^{t-1}e^\tau d\tau = e^{t-1}-e^{t-2}$\\
+	
+		\[   
+		y(t) = 
+		\begin{cases}
+		\text{0,} & -\infty < t \le1\\
+		e^{t-1}-1, & 1 < t \le 2 \\
+		e^{t-1}-e^{t-2} &2 < t < \infty\\
+		\end{cases}
+		\]
+\end{enumerate}
+\item %write the solution of q5
+\ \\
+\begin{enumerate}
+	\item %write the solution of q4c
+	\ \\
+	$y[n]-15y[n-1]+26y[n-2]=0$ \qquad $y[0]=10 , y[1]=42$\\
+	Characteristic equation;\\
+	\null \qquad $r^2-15r+26=0$\\
+	\null \qquad $r_1=13$, $r_2 = 2$\\
+	$y[n] = A(2)^n+B(13)^n$\\
+	$y[0]=A+B = 10$\\
+	$y[1]=A2+B13 = 42$\\
+	$B=2,A=8$\\
+	$y[n]=8.2^n+2.13^n$\\
+	\item %write the solution of q4c
+	\ \\
+	$y[n]-3y[n-1]+y[n-2]=0$ \qquad $y[0]=1$, $y[1]=2$\\
+	Characteristic equation;\\
+	\null \qquad $r^2-3r+1=0$\\
+	\null \qquad $r_1=\dfrac{3-\sqrt{5}}{2}$, $r_2=\dfrac{3+\sqrt{5}}{2}$\\
+	$y[n]= A \Big(\dfrac{3-\sqrt{5}}{2}\Big)^n + B\Big(\dfrac{3+\sqrt{5}}{2}\Big)^n$\\
+	$y[0]= A+B = 1$\\
+	$y[1]= A\Big(\dfrac{3-\sqrt{5}}{2}\Big)+B\Big(\dfrac{3+\sqrt{5}}{2}\Big)=2$\\
+	$B=\dfrac{5+\sqrt{5}}{10}$, $A==\dfrac{5-\sqrt{5}}{10}$\\
+	$y[n]= \dfrac{5-\sqrt{5}}{10} \Big(\dfrac{3-\sqrt{5}}{2}\Big)^n + \dfrac{5+\sqrt{5}}{10} \Big(\dfrac{3+\sqrt{5}}{2}\Big)^n $
+\end{enumerate}
+\item 
+\ \\
+    \begin{enumerate}
+    \item %write the solution of q4a
+    \ \\
+    $\ddot{y}(t)+6\dot{y}(t)+8y(t)=2x(t)$\\
+    $x(t)=\delta(t)$\\
+    $\ddot{h}(t)+6\dot{h}(t)+8h(t)=2\delta(t)$\\
+    $h(t)=0 $ for $t<0$ \qquad \ \ $h(0^-)=0$, $\dot{h}(0^-)=0$\\
+    For $t=0$\\
+    \null \qquad $\int_{0^-}^{0^+}\ddot{h}(t)dt + 6 \int_{0^-}^{0^+}\dot{h}(t)dt + 8 \int_{0^-}^{0^+}h(t)dt = \null \qquad 2\int_{0^-}^{0^+}\delta(t)dt$\\
+    \null \qquad $\dot{h}(0^+)-\dot{h}(0^-) + 6h(0^+)-6h(0^-)+0=2$\\
+    \null \qquad $\dot{h}(0^+) - 6h(0^+) = 2 $\\
+    \null \qquad $\dot{h}(0^+)=2$\\
+   \null \qquad  $h(0^+) =0$ since the position $y(t)$ is not changed at $t=0$ so $y(0^+)=y(0^-)$\\
+   For $t>0$ it must be solve;\\
+   \null \qquad $ \ddot{h}+6 \dot{h}+8h=0$, $\dot{0^+}=2$, $h(0^+)=0$\\
+   \null \qquad Characteristic equation;\\
+   \null \qquad \qquad $r^2+6r+8=0$ \qquad $r_1=-4$, $r_2=-2$\\
+   \null \qquad $h(t)=K_1e^{-4t}+K_2e^{-2t}$ \qquad for $ t> 0$\\
+   \null \qquad\ \ \  0 = $h(0^+) = K_1 + K_2$\\
+    \null \qquad\ \ \  2 = $\dot{h}(0^+)=-4K_1-2K_2$\\
+     \null \qquad $K_1=-1$, $K_2=1$\\
+     $h(t)=\Big[-e^{-4t}+e^{-2t}\Big] u(t)$
+    
+    \item %write the solution of q4b
+    \ \\
+    $h(t)=\Big[-e^{-4t}+e^{-2t}\Big] u(t)$
+    	\begin{enumerate}
+    		\item %write the solution of q4c
+    		\ \\
+    		Causal because $h(t)=0$ for $t<0$\\
+    		\item %write the solution of q4c
+    		\ \\
+    		It has memory because when $\exists t \ne 0$ $ h(t) \ne 0$. For example $h(1)=-e^{-4}+e^{-2} \ne 0$
+    		\item %write the solution of q4c
+    		\ \\
+    		Stable because $\int_{-\infty}^{\infty}|h(t)|dt=3/4 < \infty$
+    		\item %write the solution of q4c
+    		\ \\
+    		It is invertible
+		\end{enumerate}
+    \end{enumerate}
+
+
+
+\end{enumerate}
+\end{document}
+

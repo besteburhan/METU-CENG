@@ -1,0 +1,527 @@
+\documentclass[10pt,a4paper, margin=1in]{article}
+\usepackage{fullpage}
+\usepackage{amsfonts, amsmath, pifont}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{tkz-euclide}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{amssymb}
+\pgfplotsset{compat=1.13}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=10mm,
+ right=10mm,
+ top=10mm,
+ bottom=10mm,
+ }
+ % Write both of your names here. Fill exxxxxxx with your ceng mail address.
+ \author{
+  Burhan, Beste\\
+  \texttt{e2171395@ceng.metu.edu.tr}
+}
+\title{CENG 384 - Signals and Systems for Computer Engineers \\
+Spring 2018-2019 \\
+Written Assignment 4}
+\begin{document}
+\maketitle
+
+
+
+\noindent\rule{19cm}{1.2pt}
+
+\begin{enumerate}
+
+\item 
+    \begin{enumerate}
+    % Write your solutions in the following items.
+    \item %write the solution of q1a
+    \ \\
+	$ 2x[n] = y[n]+ \dfrac{y[n-2]}{8}-\dfrac{3y[n-1]}{4} $\\
+    \item %write the solution of q1b
+    \ \\
+    $H(e^{jw}) = \dfrac{2}{1-\dfrac{3e^{-jw}}{4}+\dfrac{e^{-2jw}}{8}} = \dfrac{2}{(1-\dfrac{e^{-jw}}{2})(1-\dfrac{e^{-jw}}{4})} = \dfrac{4}{1-\dfrac{e^{-jw}}{2}}- \dfrac{2}{1-\dfrac{e^{-jw}}{4}}$
+   	\item
+   	\ \\
+   	$h[n]=4\Big(\dfrac{1}{2}\Big)^n u[n]-2\Big(\dfrac{1}{4}\Big)^n u[n]$\\
+   	\item
+   	\ \\
+   	$X(e^{jw})=\dfrac{1}{1-\dfrac{e^{-jw}}{4}}$\\
+   	$Y(e^{jw})=H(e^{jw})X(e^{jw})$\\
+   	$ \null \qquad \quad =  \dfrac{2}{(1-\dfrac{e^{-jw}}{2})(1-\dfrac{e^{-jw}}{4})}.\dfrac{1}{(1-\dfrac{e^{-jw}}{4})}$\\
+   	$Y(e^{jw})= \dfrac{8}{1-\dfrac{e^{-jw}}{2}}+ \dfrac{-4}{1-\dfrac{e^{-jw}}{4}} + \dfrac{-2}{\Big(1-\dfrac{e^{-jw}}{4}\Big)^2}$\\
+   	$y[n]=8\Big(\dfrac{1}{2}\Big)^n u[n] -4\Big(\dfrac{1}{4}\Big)^n u[n] -2(n+1)\Big(\dfrac{1}{4}\Big)^n u[n]  $
+   	  \ \\
+   	  \ \\
+   	  
+
+
+\end{enumerate}
+
+
+\item %write the solution of q2
+\ \\
+$h[n]=h_1[n]+h_2[n]$\\
+$H(e^{jw})= H_1(e^{jw})+H_2(e^{jw})$\\
+$H_1(e^{jw})=\dfrac{1}{\Big(1-\dfrac{e^{-jw}}{3}\Big)}$\\
+$H_2(e^{jw})=\dfrac{5e^{-jw}-12}{e^{-2jw}-7e^{-jw}+12}-\dfrac{1}{\Big(1-\dfrac{e^{-jw}}{3}\Big)}$\\
+$H_2(e^{jw})=\dfrac{-2}{\Big(1-\dfrac{e^{-jw}}{4} \Big) }+\dfrac{1}{\Big(1-\dfrac{e^{-jw}}{3}\Big)}+\dfrac{-1}{\Big(1-\dfrac{e^{-jw}}{3}\Big)}$\\
+$H_2(e^{-jw})=\dfrac{-2}{\Big(1-\dfrac{e^{-jw}}{4} \Big) }$\\
+$h_2[n] = -2\Big(\dfrac{1}{4}\Big)^nu[n]$
+\item  
+\ \\
+	 \begin{enumerate}
+		\item %write the solution of q4a
+		\ \\
+		$x(t)=x_1(t)+x_2(t)$\\
+		$x_1(t) = \dfrac{sin(2\pi t)}{\pi t}$\\
+		\begin{equation}
+		X_1(jw) = \left\{
+		\begin{array}{cc}
+		1 & |w|<2\pi \\
+		0 & |w|>2\pi 
+		\end{array}
+		\right.
+		\end{equation}\\
+		\pgfkeys{/pgfplots/Axis Style/.style={
+				width=13.5cm, height=5cm,
+				axis x line=center, 
+				axis y line=middle, 
+				samples=100,
+				ymin=-1.5, ymax=1.5,
+				xmin=-12.0, xmax=12.0,
+				domain=-12:12
+		}}
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}[scale=1.0]
+			\begin{axis}[
+			Axis Style,
+			xlabel={$w$},
+			ylabel={$\boldsymbol{X_1(jw)}$},
+			xtick={
+				-12, -6.28318,  6.28318, 12
+			},
+			xticklabels={
+					$-\infty $ , $-2\pi$,  $2\pi$ , $-\infty $
+			},
+			ytick={-1, 0, 1},
+			ymin=-1, ymax=1,
+			xmin=-12, xmax=12,
+			every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+			every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+			]
+			\path[draw,line width=4pt] (-12,0) -- (-6.28318, 0) -- (-6.28318, 1) -- (6.28318, 1) -- (6.28318,0) -- (12,0);
+			\end{axis}
+			\end{tikzpicture}
+			\caption{$w$ vs. ${X_1(jw)}$.}
+			\label{fig:q3a}
+		\end{figure}
+		
+	
+	
+		
+	
+		
+		$x_2(t)=cos(3\pi t)$\\
+		$X_2(jw) = \pi [ \delta (w-3 \pi) + \delta (w+3\pi) ] $\\
+		
+			\pgfkeys{/pgfplots/Axis Stylee/.style={
+				width=13.5cm, height=5cm,
+				axis x line=center, 
+				axis y line=middle, 
+				samples=100,
+				ymin=-1.5, ymax=1.5,
+				xmin=-12.0, xmax=12.0,
+				domain=-12:12
+		}}
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}[scale=1.0]
+			\begin{axis}[
+			Axis Stylee,
+			xlabel={$w$},
+			ylabel={$\boldsymbol{X_2(jw)}$},
+			xtick={
+				-12, -9.4247,  9.4247, 12
+			},
+			xticklabels={
+				$-\infty $ , $-3\pi$,  $3\pi$ , $-\infty $
+			},
+			ytick={-1, 0, 1},
+			ymin=-1, ymax=1,
+			xmin=-12, xmax=12,
+			every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+			every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+			]
+			\path[draw,line width=4pt]  (-9.4247, 0) -- (-9.4247, 1) ;
+			\path[draw,line width=4pt]  (9.4247, 0) -- (9.4247, 1) ;
+			\end{axis}
+			\end{tikzpicture}
+			\caption{$w$ vs. ${X_2(jw)}$.}
+			\label{fig:q3b}
+		\end{figure}
+	$X(jw)=X_1(jw)+X_2(jw)$
+		
+		
+		\pgfkeys{/pgfplots/Axis Styleee/.style={
+				width=13.5cm, height=5cm,
+				axis x line=center, 
+				axis y line=middle, 
+				samples=100,
+				ymin=-4, ymax=4,
+				xmin=-12.0, xmax=12.0,
+				domain=-12:12
+		}}
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}[scale=1.0]
+			\begin{axis}[
+			Axis Styleee,
+			xlabel={$w$},
+			ylabel={$\boldsymbol{X(jw)}$},
+			xtick={
+				-12, -9.4247, -6.28318,  6.28318,  9.4247, 12
+			},
+			xticklabels={
+				$-\infty $ , $-3\pi$,  $-2\pi$,  $2\pi$ , $3\pi$ , $-\infty $
+			},
+			ytick={
+				-3.14, -1, 1,  3.14
+			},
+			yticklabels={
+				$\pi $ , $-1$,  $1$,  $\pi$ 
+			},
+			ymin=-4, ymax=4,
+			xmin=-12, xmax=12,
+			every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+			every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+			]
+			
+			\path[draw,line width=4pt]  (-9.4247, 0) -- (-9.4247, 3.14) ;
+			\path[draw,line width=4pt]  (9.4247, 0) -- (9.4247, 3.14) ;
+			\path[draw,line width=4pt] (-6.28318, 0) -- (-6.28318, 1) -- (6.28318, 1) -- (6.28318,0) ;
+			\end{axis}
+			\end{tikzpicture}
+			\caption{$w$ vs. ${X(jw)}$.}
+			\label{fig:q3c}
+		\end{figure}
+		\item %write the solution of q4a
+		\ \\
+		$Nyquist$ $ rate = 2(3 \pi) = 6 \pi$\\
+		$Nyquist$ $ frequency = 3 \pi$\\
+		$Nyquist$ $ period = \dfrac{2}{3}$
+	
+		\item %write the solution of q4a
+		\ \\
+		$x_p(t)=x(t)p(t)$\\
+		$P(jw)=\dfrac{2\pi}{T}\sum_{k=-\infty}^{\infty}\delta (w-kw_s)$\\
+		$x_p(t)=\sum_{k=-\infty}^{\infty}x(nT)\delta(t-kT)$\\
+		$X_p(jw)=\dfrac{1}{2\pi}\int_{-\infty}^{\infty} X(j\theta)P(j(w-\theta))d\theta$\\
+		\null \qquad \quad \ \  $=\dfrac{1}{T}\sum_{k=-\infty}^{\infty} X(j(w-kw_s))$\\
+		\null \qquad \quad \ \  $=\dfrac{3}{2}\sum_{k=-\infty}^{\infty} X(j(w-k6\pi))$\\
+	
+	
+			
+		\pgfkeys{/pgfplots/Axis Styl/.style={
+				width=13.5cm, height=5cm,
+				axis x line=center, 
+				axis y line=middle, 
+				samples=100,
+				ymin=-4, ymax=4,
+				xmin=-29.0, xmax=29.0,
+				domain=-29:29
+		}}
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}[scale=1.0]
+			\begin{axis}[
+			Axis Styl,
+			xlabel={$w$},
+			ylabel={$\boldsymbol{X_p(jw)}$},
+			xtick={
+				-30,-28.2743, -25.1327, -18.8495,-12.5663, -9.4247, -6.28318,  6.28318,  9.4247, 12.5663 ,18.8495, 25.1327,28.2743, 30
+			},
+			xticklabels={
+				$-\infty $ , $-9\pi$, $-8\pi$, $-6\pi$, $-4\pi$, $-3\pi$, $-2\pi$,  $2\pi$ , $3\pi$ ,$4\pi$,
+				$6\pi$,$8\pi$, $9\pi$,$-\infty $
+			},
+			ytick={
+				-3.14, -1, 1,  3.14
+			},
+			yticklabels={
+				$\pi $ , $-1$,  $1$,  $\pi$ 
+			},
+			ymin=-4, ymax=4,
+			xmin=-29, xmax=29,
+			every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+			every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+			]
+			
+			\path[draw,line width=4pt]  (-9.4247, 0) -- (-9.4247, 3.14) ;
+			\path[draw,line width=4pt]  (9.4247, 0) -- (9.4247, 3.14) ;
+			\path[draw,line width=4pt] (-6.28318, 0) -- (-6.28318, 1) -- (6.28318, 1) -- (6.28318,0) ;
+			
+			\path[draw,line width=4pt]  (-28.2743, 0) -- (-28.2743, 3.14) ;
+			\path[draw,line width=4pt]  (28.2743, 0) -- (28.2743, 3.14) ;
+			\path[draw,line width=4pt] (-25.1327, 0) -- (-25.1327, 1) -- (-12.5663, 1) -- (-12.5663,0) ;
+			\path[draw,line width=4pt] (25.1327, 0) -- (25.1327, 1) -- (12.5663, 1) -- (12.5663,0) ;
+			\end{axis}
+			\end{tikzpicture}
+			\caption{$w$ vs. ${X_p(jw)}$.}
+			\label{fig:q3c}
+		\end{figure}
+	\end{enumerate}
+
+\item 
+\ \\
+    \begin{enumerate}
+    \item %write the solution of q4a
+    \ \\
+   	$w_s=\pi$ \ \qquad \ $T=\dfrac{2\pi}{\pi}=2$\\
+   		\begin{equation}
+   	X(jw) = \left\{
+   	\begin{array}{cc}
+   	\dfrac{4w}{\pi} & |w|<\pi/4 \\
+   	0 & o.w. 
+   	\end{array}
+   	\right.
+   	\end{equation}\\
+   	
+   	\pgfkeys{/pgfplots/Axis Style4/.style={
+   			width=13.5cm, height=5cm,
+   			axis x line=center, 
+   			axis y line=middle, 
+   			samples=100,
+   			ymin=-1.5, ymax=1.5,
+   			xmin=-2.0, xmax=2.0,
+   			domain=-12:12
+   	}}
+   	\begin{figure}[h!]
+   		\centering
+   		\begin{tikzpicture}[scale=1.0]
+   		\begin{axis}[
+   		Axis Style4,
+   		xlabel={$w$},
+   		ylabel={$\boldsymbol{X(jw)}$},
+   		xtick={
+   			-2, -0.7853,  0.7853, 2
+   		},
+   		xticklabels={
+   			$ $ , $-\pi /4$,  $\pi /4$ , $ $
+   		},
+   		ytick={-1, 0, 1},
+   		ymin=-1, ymax=1,
+   		xmin=-2, xmax=2,
+   		every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+   		every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+   		]
+   		\path[draw,line width=4pt] (-0.7853,0) -- (-0.7853,1) -- (0, 0) -- (0.7853, 1) -- (0.7853, 0);
+   		\end{axis}
+   		\end{tikzpicture}
+   		\caption{$w$ vs. ${X(jw)}$.}
+   		\label{fig:q3a}
+   	\end{figure}
+   	
+   	$x_p(t)=\sum_{k=-\infty}^{\infty}x(nT)\delta(t-kT)$\\
+   	$X_p(jw)=\dfrac{1}{2}\sum_{k=-\infty}^{\infty}X(j(w-k\pi))$\\
+   	
+   	\pgfkeys{/pgfplots/Axis Style4a/.style={
+   			width=13.5cm, height=5cm,
+   			axis x line=center, 
+   			axis y line=middle, 
+   			samples=100,
+   			ymin=-1.5, ymax=1.5,
+   			xmin=-4.0, xmax=4.0,
+   			domain=-4:4
+   	}}
+   	\begin{figure}[h!]
+   		\centering
+   		\begin{tikzpicture}[scale=1.0]
+   		\begin{axis}[
+   		Axis Style4a,
+   		xlabel={$w$},
+   		ylabel={$\boldsymbol{X_p(jw)}$},
+   		xtick={
+   			-4, -3.9269 , -3.1415, -2.3561 , -0.7853,  0.7853, 2.3561 , 3.1415 , 3.9269 , 4
+   		},
+   		xticklabels={
+   			$ $ ,$-5\pi /4$, $-\pi$, $ -3\pi /4$, $-\pi /4$,  $\pi /4$ ,$ 3\pi /4$, $\pi$ , $5\pi /4$,  $ $
+   		},
+   		ytick={
+   			-0.5,0,0.5
+   		},
+   		yticklabels={
+   			$-1/2 $ ,$ $, $1/2$
+   		},
+   		ymin=-1, ymax=1,
+   		xmin=-4, xmax=4,
+   		every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+   		every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+   		]
+   		\path[draw,line width=4pt] (-0.7853,0) -- (-0.7853,0.5) -- (0, 0) -- (0.7853, 0.5) -- (0.7853, 0);
+   		\path[draw,line width=4pt] (-3.9269,0) -- (-3.9269,0.5) -- (-3.1415, 0) -- (-2.3561 ,0.5) -- (-2.3561, 0);
+   		\path[draw,line width=4pt] (3.9269,0) -- (3.9269,0.5) -- (3.1415, 0) -- (2.3561 , 0.5) -- (2.3561, 0);
+   		\end{axis}
+   		\end{tikzpicture}
+   		\caption{$w$ vs. ${X_p(jw)}$.}
+   		\label{fig:q3a}
+   	\end{figure}
+   		\ \\
+   	\ \\
+   	
+   	$X_d(e^{jw})=\dfrac{1}{2}\sum_{k=- \infty}^{\infty} X(j(w-2\pi k)/T)$\\
+   	\pgfkeys{/pgfplots/Axis Style4b/.style={
+   			width=13.5cm, height=5cm,
+   			axis x line=center, 
+   			axis y line=middle, 
+   			samples=100,
+   			ymin=-1.5, ymax=1.5,
+   			xmin=-8.0, xmax=8.0,
+   			domain=-8:8
+   	}}
+   	\begin{figure}[h!]
+   		\centering
+   		\begin{tikzpicture}[scale=1.0]
+   		\begin{axis}[
+   		Axis Style4b,
+   		xlabel={$w$},
+   		ylabel={$\boldsymbol{X_d(e^{jw})}$},
+   		xtick={
+   			-7.5, -7.0685 , -6.2831, -5.4977 , -0.7853,  0.7853, 5.4977 ,6.2831 , 7.0685 , 7.5
+   		},
+   		xticklabels={
+   			$ $ ,$\dfrac{-9\pi}{4}$, $-2\pi$, $ \dfrac{-7\pi}{4}$, $-\pi /4$,  $\pi /4$ ,$ \dfrac{7\pi}{4}$, $2\pi$ , $\dfrac{9\pi}{4}$,  $ $
+   		},
+   		ytick={
+   			-0.5,0,0.5
+   		},
+   		yticklabels={
+   			$ $ ,$ $, $1/2$
+   		},
+   		ymin=-1, ymax=1,
+   		xmin=-8, xmax=8,
+   		every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+   		every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+   		]
+   		\path[draw,line width=4pt] (-0.7853,0) -- (-0.7853,0.5) -- (0, 0) -- (0.7853, 0.5) -- (0.7853, 0);
+   		\path[draw,line width=4pt] (-7.0685,0) -- (-7.0685,0.5) -- (-6.2831, 0) -- (-5.4977 , 0.5) -- (-5.4977, 0);
+   		\path[draw,line width=4pt] (7.0685,0) -- (7.0685,0.5) -- (6.2831, 0) -- (5.4977 , 0.5) -- (5.4977, 0);
+   		\end{axis}
+   		\end{tikzpicture}
+   		\caption{$w$ vs. ${X_d(e^{jw})}$.}
+   		\label{fig:q3a}
+   	\end{figure}
+   
+  \item %write the solution of q4a
+  \ \\
+  $H(e^{jw})= \pi \sum_{k=-\infty}^{\infty}\delta (w-\pi - 2\pi k) + \delta (w+ \pi -2\pi k)$\\
+  	\pgfkeys{/pgfplots/Axis Style4c/.style={
+  		width=13.5cm, height=5cm,
+  		axis x line=center, 
+  		axis y line=middle, 
+  		samples=100,
+  		ymin=-4, ymax=4,
+  		xmin=-13.0, xmax=13.0,
+  		domain=-13:13
+  }}
+  \begin{figure}[h!]
+  	\centering
+  	\begin{tikzpicture}[scale=1.0]
+  	\begin{axis}[
+  	Axis Style4c,
+  	xlabel={$w$},
+  	ylabel={$\boldsymbol{H(e^{jw})}$},
+  	xtick={
+  		-13, -9.4247, -3.1415, 3.1415,   9.4247, 13
+  	},
+  	xticklabels={
+  		$ $ , $-3\pi$,$-\pi$,$\pi$,  $3\pi$ , $ $
+  	},
+  	ytick={
+  		-3.1415, 0 ,3.1415
+  	},
+  	yticklabels={
+  		$ $ , $ $,  $\pi$ 
+  	},
+  	ymin=-4, ymax=4,
+  	xmin=-13, xmax=13,
+  	every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+  	every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+  	]
+  	\path[draw,line width=4pt]  (-9.4247, 0) -- (-9.4247, 3.1415) ;
+  	\path[draw,line width=4pt]  (9.4247, 0) -- (9.4247, 3.1415) ;
+  	\path[draw,line width=4pt]  (-3.1415, 0) -- (-3.1415, 3.1415) ;
+  	\path[draw,line width=4pt]  (3.1415, 0) -- (3.1415, 3.1415) ;
+  	\end{axis}
+  	\end{tikzpicture}
+  	\caption{$w$ vs. ${H(e^{jw})}$.}
+  	\label{fig:q3b}
+  \end{figure}
+  \item %write the solution of q4a
+  \ \\
+ $y_d[n]= x_d[n]h[n]$\\
+ $Y_d(e^{jw)} = \dfrac{1}{2\pi}X_d(e^{jw})*H(e^{jw})$\\
+ \null \qquad \quad \ \ $ = \dfrac{1}{2\pi} \int_{<2\pi>}^{}X_d(e^{j\theta})H(e^{j(w-\theta)})d\theta$\\
+
+ 
+ 	\pgfkeys{/pgfplots/Axis Style4b/.style={
+ 		width=13.5cm, height=5cm,
+ 		axis x line=center, 
+ 		axis y line=middle, 
+ 		samples=100,
+ 		ymin=-0.5, ymax=0.5,
+ 		xmin=-4, xmax=4,
+ 		domain=-8:8
+ }}
+ \begin{figure}[h!]
+ 	\centering
+ 	\begin{tikzpicture}[scale=1.0]
+ 	\begin{axis}[
+ 	Axis Style4b,
+ 	xlabel={$w$},
+ 	ylabel={$\boldsymbol{Y_d(e^{jw})}$},
+ 	xtick={
+ 		-4, -3.9269 , -3.1415, -2.3561 , 2.3561, 3.1415, 3.9269 ,4
+ 	},
+ 	xticklabels={
+ 		$ $ ,$\dfrac{-5\pi}{4}$, $\dfrac{-\pi}{4}$, $ \dfrac{-3\pi}{4}$, $\dfrac{3\pi}{4}$,$\dfrac{-\pi}{4}$, $\dfrac{5\pi}{4}$ ,  $ $
+ 	},
+ 	ytick={
+ 		-0.1591,0,0.1591
+ 	},
+ 	yticklabels={
+ 		$ $ ,$ $, $1/2\pi$
+ 	},
+ 	ymin=-0.5, ymax=0.5,
+ 	xmin=-4, xmax=4,
+ 	every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=west,},
+ 	every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=south,},
+ 	]
+ 	\path[draw,line width=4pt] (-3.9269,0) -- (-3.9269,0.1591) -- (-3.1415, 0) -- (-2.3561 , 0.1591) -- (-2.3561, 0);
+ 	\path[draw,line width=4pt] (3.9269,0) -- (3.9269,0.1591) -- (3.1415, 0) -- (2.3561 , 0.1591) -- (2.3561, 0);
+ 	\end{axis}
+ 	\end{tikzpicture}
+ 	\caption{$w$ vs. ${Y_d(e^{jw})}$.}
+ 	\label{fig:q3a}
+ \end{figure}
+ 
+    \end{enumerate}
+
+
+
+\end{enumerate}
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\end{document}
+
