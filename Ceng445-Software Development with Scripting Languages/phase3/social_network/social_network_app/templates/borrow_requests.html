@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block block_for_authenticated_users %}
+
+{% load extras %}
+    {% block head %}
+        <script>
+            var slider = new Slider('#ex5');
+
+        </script>
+
+    {% endblock %}
+<h3>Borrowed Items</h3>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+
+              <th> Owner </th>
+              <th> Title </th>
+              <th> Taken Date</th>
+              <th> Should Return Date </th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for borrowed_item in borrowed_items %}
+                <td><a href="/users/{{ borrowed_item.item.owner.id }}/">{{ borrowed_item.item.owner.first_name| capfirst}} {{ borrowed_item.item.owner.last_name|capfirst }}</a></td>
+                <td><a href="/item/{{ borrowed_item.item.id }}/">{{ borrowed_item.item.title}}</a></td>
+                <td>{{ borrowed_item.taken_date}}</td>
+                <td>{{ borrowed_item.returned_date}}</td>
+
+            {% endfor %}
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br><br>
+
+<h3>Returned Items</h3>
+     <table class="table table-striped">
+        <thead>
+          <tr>
+
+              <th> Owner </th>
+              <th> Title </th>
+              <th> Taken Date</th>
+              <th> Rate </th>
+              <th></th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for borrow_object in returned_items %}
+                <td><a href="/users/{{ borrow_object.item.owner.id }}/">{{ borrow_object.item.owner.first_name| capfirst}} {{ borrow_object.item.owner.last_name|capfirst }}</a></td>
+                <td><a href="/item/{{ borrow_object.item.id }}/">{{ borrow_object.item.title}}</a></td>
+                <td>{{ borrow_object.taken_date}}</td>
+                <td> {{ borrow_object.rate }}</td>
+                <td >
+                <div style="width: 50%">
+                <form action="/borrow_requests/" method="post" >
+                     {% csrf_token %}
+                    <div class="col-sm-9">
+                    <input type="range" name="rate" min="0" max="10" value="{{ borrow_object.rate }}" style="width: 80%" required>
+                        <div class="col-sm-3">
+                            <input type="text" name="borrow_id" value="{{ borrow_object.id }}" hidden></div>
+                    </div>
+                     <button type="submit" name="submit_type" value="rate" class="btn btn-warning"> Rate </button>
+
+                </form>
+                </div>
+                </td>
+
+            {% endfor %}
+            </tr>
+
+        </tbody>
+    </table>
+    <br><br>
+
+<h3> Borrow Item Requests </h3>
+    <hr>
+
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+
+              <th> Owner </th>
+              <th> Title </th>
+              <th> Your order </th>
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for borrow_request in borrow_requests %}
+            <tr>
+
+                <td><a href="/users/{{ borrow_request.item.owner.id }}/">{{ borrow_request.item.owner.first_name| capfirst}} {{ borrow_request.item.owner.last_name|capfirst }}</a></td>
+                <td><a href="/item/{{ borrow_request.item.id }}/">{{ borrow_request.item.title}}</a></td>
+                <td>{% get_order_in_borrow_requests request.user borrow_request.item %}</td>
+
+
+
+            </tr>
+         {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+{#    <div class="col-sm-4">#}
+{#        <ul class="list-group">#}
+{##}
+{##}
+{#    {% for br in borrow_requests %}#}
+{#            <li class="list-group-item "> <b> Item</b>  : <a href="/item/{{ br.item.id }}">{{ br.item.title }}</a>  <b>Owner:  </b>{{ br.item.owner.first_name|capfirst }} {{ br.item.owner.last_name|capfirst }}  </li>#}
+{#        {% endfor %}#}
+{#        </ul>#}
+{##}
+{#    </div>#}
+
+{% endblock %}
+
+{% block block_for_unauthenticated_users %}
+    <h2>hooooop nabıyon</h2>
+{% endblock %}

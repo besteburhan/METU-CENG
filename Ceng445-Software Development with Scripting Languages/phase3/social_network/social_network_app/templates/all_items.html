@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load extras %}
+{% block block_for_authenticated_users %}
+<table class="table table-striped">
+    <h4>ITEMS</h4>
+    <br>
+    <thead>
+      <tr>
+	      <th> Title </th>
+	      <th> Type</th>
+	      <th> Genre </th>
+	      <th> Artist </th>
+	      <th> Year </th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+	{% for item in borrowable_items %}
+		<tr>
+			<td><a href="/item/{{ item.id }}/">{{ item.title}}</a></td>
+			<td>{{ item.type }}</td>
+			<td>{{ item.genre }}</td>
+			<td>{{ item.artist }}</td>
+			<td>{{ item.year }}</td>
+            {% check_borrow_permission request.user item as is_borrowable%}
+            {% if is_borrowable %}
+            <td>
+                <div class="form-group col-sm-4" >
+                         <form action="/all_items/" method="post">
+                             {% csrf_token %}
+                             <div class="col-sm-10" style="margin-top: -20px">
+                                 <input name="item_id" type="text" hidden value="{{ item.id }}">
+                                <label for="states"></label>
+
+                             </div>
+                                <div class="col-sm-2">
+                             <button type="submit" class="btn btn-warning" name="submit_type" value="borrow"> Borrow </button>
+                                </div>
+                        </form>
+                     </div>
+            </td>
+        {% endif %}
+
+		</tr>
+	{% endfor %}
+    {% for item in  viewable_items%}
+		<tr>
+			<td><a href="/item/{{ item.id }}/">{{ item.title}}</a></td>
+			<td>{{ item.type }}</td>
+			<td>{{ item.genre }}</td>
+			<td>{{ item.artist }}</td>
+			<td>{{ item.year }}</td>
+
+		</tr>
+	{% endfor %}
+
+    </tbody>
+  </table>
+    <br>
+    <div style="float: right;">
+        <form class="form-inline my-2 my-lg-0" method="POST" action="/all_items/">
+            {% csrf_token %}
+            <input type="checkbox" aria-label="Checkbox for following text input" id="for_borrow" name="for_borrow" >
+            <label for="for_borrow" style="margin-left: 10px; margin-right: 10px;" > To borrow</label>
+              <input class="form-control mr-sm-2" type="text" name="search_text"  placeholder="in title and artist" aria-label="Search" required>
+              <input class="form-control mr-sm-2" type="text" name="genre"  placeholder="in genre" aria-label="Search">
+              <input class="form-control mr-sm-2" type="number" name="year"  placeholder="after what year" aria-label="Search">
+              <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" name="submit_type" value="search">Search</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block block_for_unauthenticated_users %}
+    <h2>hooooop nabıyon</h2>
+{% endblock %}

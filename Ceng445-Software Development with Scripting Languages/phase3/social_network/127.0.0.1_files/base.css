@@ -1,0 +1,16 @@
+.nav-item a{
+    font-size:18px;
+    color:#487081;
+    /*font-family: 'Courgette', cursive;*/
+}
+.nav-item .nav-link h4{
+    font-size:22px;
+}
+#profile_photo{
+    width: 200px;
+    height: auto;
+    border-radius:50%
+}
+#navbarSupportedContent a, span{
+    color: white;
+}

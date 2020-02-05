@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load extras %}
+{% block block_for_authenticated_users %}
+<h3> Announcements</h3>
+<table class="table table-striped">
+    <br>
+    <thead>
+      <tr>
+	      <th> From </th>
+	      <th> Item </th>
+	      <th> Announcement</th>
+	      <th> Date </th>
+      </tr>
+    </thead>
+    <tbody>
+	{% for announcement in announcements %}
+		<tr>
+			<td><a href="/users/{{ announcement.item.owner.id }}/">{{ announcement.item.owner.first_name|capfirst}} {{ announcement.item.owner.last_name|capfirst }}</a></td>
+			<td><a href="/item/{{ announcement.item.id }}/">{{ announcement.item.title|capfirst}}</a></td>
+			<td>{{ announcement.msg }}</td>
+			<td>{{ announcement.date }}</td>
+
+		</tr>
+	{% endfor %}
+
+
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block block_for_unauthenticated_users %}
+    <h2>hooooop nabıyon</h2>
+{% endblock %}

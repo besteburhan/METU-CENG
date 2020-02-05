@@ -1,0 +1,347 @@
+{% extends 'base.html' %}
+
+{% load extras %}
+{% block head %}
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script>
+
+    function load_unload_div(div_id) {
+
+        var expanded_div = document.getElementById(div_id);
+        if(expanded_div.style.display=="none")
+            expanded_div.style.display = "block" ;
+        else
+            expanded_div.style.display = "none";
+    }
+    $(document).ready(function () {
+        {#for(int i=int("{{  }}"))#}
+        {#$('#view_select').val({{  }});#}
+    });
+
+</script>
+{% endblock %}
+
+{% block block_for_authenticated_users %}
+<table class="table table-striped">
+ {%  if user_viewed == request.user %}
+    <h4>YOUR ITEMS</h4>
+{% else %}
+     <h4>{{ user_viewed.first_name| capfirst }} {{ user_viewed.last_name|capfirst }}'s Items</h4>
+{% endif %}
+    <br>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <br>
+    <thead >
+      <tr>
+	      <th> Title </th>
+	      <th> Type</th>
+	      <th> Genre </th>
+	      <th> Artist </th>
+	      <th> Year </th>
+	      <th> Location </th>
+          {%  if user_viewed == request.user %}
+              <th> View Permission </th>
+              <th> Detail Permission </th>
+              <th> Borrow Permission </th>
+              <th> Search Permission </th>
+              <th> Comment Permission </th>
+              <th> See borrow request </th>
+              <th> Delete Item </th>
+          {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+	{% for item in location_available_items %}
+		<tr>
+			<td><a href="/item/{{ item.id }}/">{{ item.title}}</a></td>
+			<td>{{ item.type }}</td>
+			<td>{{ item.genre }}</td>
+			<td>{{ item.artist }}</td>
+			<td>{{ item.year }}</td>
+            {% get_location_item request.user item as location %}
+            {%  if user_viewed != request.user %}
+                <td>{{ location }}</td>
+
+            {% else %} {# if it's me #}
+                {% if location == 'borrowed'  %}
+                    <td>
+                        <form action="/users/{{ request.user.pk }}/" method="post">
+                             {% csrf_token %}
+                            <input type="text" name="item_id" value="{{ item.id }}" hidden>
+                            <button type="submit" name="submit_type" value="returned" class="btn btn-warning"> Returned </button>
+
+                        </form>
+                    </td>
+                {% else %}
+                    <td>
+                        <form action="/users/{{ request.user.pk }}/" method="post">
+                             {% csrf_token %}
+                            <input type="text" name="location" value="{{ location }}">
+                            <input type="text" name="item_id" value="{{ item.id }}" hidden>
+                            <button type="submit" name="submit_type" value="change_location" class="btn btn-warning" > Change </button>
+
+                        </form>
+
+
+                    </td>
+                {% endif %}
+                <td>{% get_state_type item 'view' %} </td>
+                <td>{% get_state_type item 'detail' %}</td>
+                <td>{% get_state_type item 'borrow' %}</td>
+                <td>{% get_state_type item 'search' %}</td>
+                <td>{% get_state_type item 'comment' %}</td>
+                <td> <button id="{{ item.id }}" onclick="load_unload_div('borrow_requests_div{{ item.id }}');" class="btn btn-warning"> See </button>
+                <td>
+                    <form action="/users/{{ request.user.pk }}/" method="post">
+                                 {% csrf_token %}
+                                <input type="text" name="item_id" value="{{ item.id }}" hidden>
+                                <button type="submit" name="submit_type" value="delete" class="btn btn-danger" style="padding-top: 3px;padding-bottom: 2px;">
+                                    <i class="material-icons">delete_forever</i> </button>
+
+                    </form>
+                </td>
+                </td>
+            {% endif %}
+
+		</tr>
+        {%  if user_viewed == request.user %}
+        <tr>
+            <td></td>
+            <td colspan="50">
+                <div id="borrow_requests_div{{ item.id }}" style="display: none; width: 60%;">
+                    {% get_borrow_requests item as request_list %}
+                        <table id="borrow_requests_for_item" style="width: 60%;">
+                            <thead >
+                                <th> Owner</th>
+                                <th> Request Date</th>
+                                <th> Should Return Date </th>
+                                <th>  </th>
+                            </thead>
+                            <tbody>
+                            {% for borrow_request in request_list %}
+                                <tr>
+                                <td><a href="/users/{{ borrow_request.user.id }}/">{{ borrow_request.user.first_name|capfirst }} {{ borrow_request.user.last_name|capfirst }}</a></td>
+                                <td> {{ borrow_request.request_date }}</td>
+
+                                <td>
+                                    <form action="/users/{{ request.user.pk }}/" method="post">
+                                         {% csrf_token %}
+                                        <input type="text" name="item_id" value="{{ borrow_request.item.id }}" hidden>
+                                        <input type="text" name="requested_user" value="{{ borrow_request.user.id }}" hidden>
+                                        <input type="date" name="returned_date" >
+                                            <button type="submit" name="submit_type" value="lend" class="btn btn-warning"> Lend </button>
+
+                                    </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                </div></td>
+        </tr>
+        {% endif %}
+	{% endfor %}
+	{% for item in location_unavailable_items %}
+		<tr>
+            <td> {{ item.owner.first_name|capfirst }} {{ item.owner.last_name|capfirst }}</td>
+			<td>{{ item.title}}</td>
+			<td>{{ item.type }}</td>
+			<td>{{ item.genre }}</td>
+			<td>{{ item.artist }}</td>
+			<td>{{ item.year }}</td>
+			<td>{% get_location_item request.user item %}</td>
+            {%  if user_viewed == request.user %}
+                <td>{% get_state_type item 'view' %}</td>
+                <td>{% get_state_type item 'detail' %}</td>
+                <td>{% get_state_type item 'borrow' %}</td>
+                <td>{% get_state_type item 'search' %}</td>
+                <td>{% get_state_type item 'comment' %}</td>
+            {% endif %}
+
+		</tr>
+	{% endfor %}
+
+    </tbody>
+  </table>
+
+{% for borrow_request in  borrow_requests %}
+
+    {% endfor  %}
+
+
+{#    Form to add item     #}
+
+    {%  if user_viewed == request.user %}
+
+    <hr>
+    <h4>ADD NEW ITEM </h4>
+    <hr>
+               <div class="form-group col-sm-5" >
+                 <form action="/users/{{ request.user.pk }}/" method="post">
+                     {% csrf_token %}
+                    {{ form.as_p }}
+                     <div class="col-sm-6">
+                         <label for="type" style="margin-bottom: 6px;"> Type </label><br>
+                     </div>
+                     <div class="col-sm-6">
+                         <input type="text" name="type" id="type"><br>
+                     </div>
+
+                     <div class="col-sm-6">
+                         <label for="title" style="margin-bottom: 6px;"> Title </label><br>
+                     </div>
+                     <div class="col-sm-6">
+                        <input type="text" name="title" id="title"><br>
+
+                     </div>
+                     <div class="col-sm-6">
+                         <label for="isbn" style="margin-bottom: 6px;"> ISBN </label><br>
+                     </div>
+                     <div class="col-sm-6">
+                        <input type="number" name="isbn" id = 'isbn'><br>
+
+                     </div>
+                     <div class="col-sm-6">
+                        <label for="artist" style="margin-bottom: 6px;"> Artist </label><br>
+                     </div>
+                     <div class="col-sm-6">
+                        <input type="text" name="artist" id="artist"><br>
+
+                     </div>
+
+                     <div class="col-sm-6">
+                        <label for="genre" style="margin-bottom: 6px;"> Genre </label><br>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <input type="text" name="genre" id="genre"><br>
+
+                     </div>
+
+                     <div class="col-sm-6">
+                        <label for="year" style="margin-bottom: 6px;"> Year </label><br>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <input type="number" name="year" id="year"><br>
+
+                     </div>
+
+                     <div class="col-sm-6">
+                        <label for="location" > Location </label><br>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <input type="text" name="location" id="location"><br>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <label for="view" > View Permission </label><br>
+                     </div>
+
+                     <div class="col-sm-4">
+                        <select name='view' class="form-control" id="view">
+                          <option value="2 ">Friends</option>
+                          <option value="0" >Closed</option>
+                          <option value="1">Close Friends</option>
+                          <option value="3 ">Everyone</option>
+                        </select>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <label for="detail" > Detail Permission </label><br>
+                     </div>
+                     <div class="col-sm-4">
+                        <select name='detail' class="form-control" id="detail">
+                          <option value="2 ">Friends</option>
+                          <option value="0" >Closed</option>
+                          <option value="1">Close Friends</option>
+                          <option value="3 ">Everyone</option>
+                        </select>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <label for="borrow" > Borrow Permission </label><br>
+                     </div>
+
+                     <div class="col-sm-4">
+                         <select name='borrow' class="form-control" id="borrow">
+                          <option value="2 ">Friends</option>
+                          <option value="0" >Closed</option>
+                          <option value="1">Close Friends</option>
+                          <option value="3 ">Everyone</option>
+                        </select>
+
+                     </div>
+
+                     <div class="col-sm-6">
+                        <label for="comment" > Comment Permission </label><br>
+                     </div>
+
+                     <div class="col-sm-4">
+                         <select name='comment' class="form-control" id="comment">
+
+                          <option value="2 ">Friends</option>
+                          <option value="0" >Closed</option>
+                          <option value="1">Close Friends</option>
+                          <option value="3 ">Everyone</option>
+                        </select>
+
+                     </div>
+
+                     <div class="col-sm-6">
+                        <label for="search" > Search Permission </label><br>
+                     </div>
+
+                     <div class="col-sm-4">
+                        <select name='search' class="form-control" id="search">
+                          <option value="2 ">Friends</option>
+                          <option value="0" >Closed</option>
+                          <option value="1">Close Friends</option>
+                          <option value="3 ">Everyone</option>
+                        </select>
+                     </div>
+                     <div class="col-sm-12">
+                         <button type="submit" name="submit_type" value="save" class="btn btn-warning"> Save </button>
+                     </div>
+
+                </form>
+             </div>
+    {% endif %}
+    <br><br>
+    {% check_user_watch_request request.user user_viewed as can_watch %}
+    {%  if user_viewed != request.user and can_watch %}
+    {% is_watching_user request.user user_viewed as is_watching%}
+        {% if is_watching %}
+            <div>
+                <form class="form-inline my-2 my-lg-0" method="POST" action="/users/{{ user_viewed.id }}/">
+                    {% csrf_token %}
+                      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" name="submit_type" value="unwatch">
+                          Unwatch</button>
+                </form>
+            </div>
+            {% else %}
+                <div>
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="/users/{{ user_viewed.id }}/">
+                        {% csrf_token %}
+                          <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" name="submit_type" value="watch">
+                              Watch</button>
+                    </form>
+                </div>
+            {% endif %}
+
+    {% endif %}
+{% endblock %}
+
+{% block block_for_unauthenticated_users %}
+    <h2>hooooop nabıyon</h2>
+{% endblock %}
+
+

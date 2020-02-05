@@ -1,0 +1,88 @@
+<Scene>
+    <BackgroundColor>0 0 0</BackgroundColor>
+
+    <ShadowRayEpsilon>1e-3</ShadowRayEpsilon>
+
+    <MaxRecursionDepth>6</MaxRecursionDepth>
+
+    <Cameras>
+        <Camera id="1">
+            <Position>0 0 0</Position>
+            <Gaze>0 0 -1</Gaze>
+            <Up>0 1 0</Up>
+            <NearPlane>-0.5 0.5 -0.5 0.5</NearPlane>
+            <NearDistance>1</NearDistance>
+            <ImageResolution>1024 1024</ImageResolution>
+            <ImageName>mirror_spheres.ppm</ImageName>
+        </Camera>
+    </Cameras>
+
+    <Lights>
+        <AmbientLight>12.5 12.5 12.5</AmbientLight>
+        <PointLight id="1">
+            <Position>3 3 0 </Position>
+            <Intensity>7200 7200 7200</Intensity>
+        </PointLight>
+    </Lights>
+
+    <Materials>
+        <Material id="1">
+            <AmbientReflectance>1 1 1</AmbientReflectance>
+            <DiffuseReflectance>1 0 0</DiffuseReflectance>
+            <SpecularReflectance>1 1 1</SpecularReflectance>
+            <MirrorReflectance>1 1 1</MirrorReflectance>
+            <PhongExponent>50</PhongExponent>
+        </Material>
+        <Material id="2">
+            <AmbientReflectance>1 1 1</AmbientReflectance>
+            <DiffuseReflectance>0 1 0</DiffuseReflectance>
+            <SpecularReflectance>1 1 1</SpecularReflectance>
+            <MirrorReflectance>1 1 1</MirrorReflectance>
+            <PhongExponent>50</PhongExponent>
+        </Material>
+        <Material id="3">
+            <AmbientReflectance>1 1 1</AmbientReflectance>
+            <DiffuseReflectance>0 0 1</DiffuseReflectance>
+            <SpecularReflectance>1 1 1</SpecularReflectance>
+            <MirrorReflectance>1 1 1</MirrorReflectance>
+            <PhongExponent>50</PhongExponent>
+        </Material>
+        <Material id="4">
+            <AmbientReflectance>1 1 1</AmbientReflectance>
+            <DiffuseReflectance>1 1 0</DiffuseReflectance>
+            <SpecularReflectance>1 1 1</SpecularReflectance>
+            <MirrorReflectance>1 1 1</MirrorReflectance>
+            <PhongExponent>50</PhongExponent>
+        </Material>
+    </Materials>
+
+    <VertexData>
+        -1 -1 -5
+        1 -1 -5
+        1 1 -5
+        -1 1 -5
+    </VertexData>
+
+    <Objects>
+        <Sphere id="1">
+            <Material>1</Material>
+            <Center>1</Center>
+            <Radius>1</Radius>
+        </Sphere>
+        <Sphere id="2">
+            <Material>2</Material>
+            <Center>2</Center>
+            <Radius>1</Radius>
+        </Sphere>
+        <Sphere id="3">
+            <Material>3</Material>
+            <Center>3</Center>
+            <Radius>1</Radius>
+        </Sphere>
+        <Sphere id="4">
+            <Material>4</Material>
+            <Center>4</Center>
+            <Radius>1</Radius>
+        </Sphere>
+    </Objects>
+</Scene>

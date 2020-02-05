@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block head %}
+
+     <link rel="stylesheet" href="{%static 'css/form.css'%}">
+
+    <script>
+    function forgot_password(){
+
+        $("#change_pass_div").css('display','block');
+    }
+    </script>
+{% endblock %}
+{% block block_for_unauthenticated_users%}
+    <div class="bg">
+        {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="container">
+        <div class="item">
+
+           <h4 style="color: #ffffff">Login</h4>
+            <div class="flex-form">
+                <form  method="post" name="login_form">
+
+                    {% csrf_token %}
+                    {{ login_form.as_p }}
+                    <input type="text" name="type" value="login" hidden>
+                    <button type="submit" name="" value="Login" style="color: #ffffff"> Sign In</button>
+
+                </form>
+            </div>
+
+        <p style="color: white">Did you forget your <a onclick="forgot_password();" style="cursor: pointer">password</a>?</p>
+        </div>
+    </div>
+
+    <div class="container" >
+        <div class="item" id="change_pass_div"  style="display: none;">
+        <div class="flex-form">
+             <form action="" method="post">
+                     {% csrf_token %}
+                 <input type="text" name="type" value="change_password" hidden>
+                 <label for="email" style="color: #ffffff"> Email</label>
+                    <input type="email" name="email" id="email" >
+                 <label for="old_pass" style="color: #ffffff"> Old Password</label>
+                    <input type="password" name="old_password" id="old_pass" >
+                 <label for="new_pass" style="color: #ffffff"> New Password</label>
+                    <input type="password" name="new_password"  id="new_pass">
+                    <button type="submit" name="submit_type" value="change_password" style="margin-top: 5px;"> Change Password </button>
+
+            </form>
+        </div>
+        </div>
+    </div>
+
+
+    </div>
+
+{% endblock%}

@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block head %}
+
+{#     <link rel="stylesheet" href="{%static 'css/form.css'%}">#}
+{% endblock %}
+{% block block_for_unauthenticated_users%}
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+    <div class="container">
+        <div class="item">
+
+           <h4 style="color: #ffffff">Verify</h4>
+            <div class="flex-form">
+                <form  method="post" name="verification_form">
+                    {% csrf_token %}
+                    {{ verification_form.as_p }}
+                    <button type="submit" name="" value="verify" style="color: #ffffff"> Verify </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock%}

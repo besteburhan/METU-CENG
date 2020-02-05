@@ -1,0 +1,86 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:700';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:700';
+body {
+  background: #01395e;
+  height: 100%;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 40%;
+}
+
+.item {
+  background: #01395e;
+  box-shadow: 5px 6px 10px 4px #01395e;
+  margin: 30px;
+  padding: 30px 10px 10px 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+}
+
+.flex-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  padding: 0 10px 0 10px;
+
+}
+
+input {
+  width: 250px;
+  padding: 20px 20px 15px 9px;
+  display: block;
+  flex: 1;
+  font-size: 19px;
+  border-radius: 6px;
+  color: #01395e !important;
+  background: #e8f0Fe;
+  border: none;
+  border-bottom: 1px solid #01395e;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #01395e;
+  opacity: 1; /* Firefox */
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  width: 275px;
+  height: 55px;
+  margin: 50px 5px 8px 0;
+  font-size: 18px;
+  border: 2px solid #cecece;
+  text-decoration-color: white;
+  background-color: transparent;
+  color: #ffffff;
+  border-radius: 3px;
+}
+
+button:hover {
+  border: 2px solid #01395e;
+  color: #01395e !important;
+  background: #ffffff;
+  transition: 0.3s;
+
+}

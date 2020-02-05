@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load extras %}
+{% block block_for_authenticated_users %}
+<h3> Notifications from Followed Users</h3>
+<table class="table table-striped">
+    <br>
+    <thead>
+      <tr>
+	      <th> From </th>
+	      <th> Notification</th>
+	      <th> Date </th>
+      </tr>
+    </thead>
+    <tbody>
+	{% for notification in notifications %}
+		<tr>
+			<td><a href="/users/{{ notification.sender_user.id }}/">{{ notification.sender_user.first_name|capfirst}} {{ notification.sender_user.last_name|capfirst }}</a></td>
+			<td>{{ notification.text }}</td>
+			<td>{{ notification.date }}</td>
+
+		</tr>
+	{% endfor %}
+    {% for item in  viewable_items%}
+		<tr>
+			<td><a href="/item/{{ item.id }}/">{{ item.title}}</a></td>
+			<td>{{ item.type }}</td>
+			<td>{{ item.genre }}</td>
+			<td>{{ item.artist }}</td>
+			<td>{{ item.year }}</td>
+
+		</tr>
+	{% endfor %}
+
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block block_for_unauthenticated_users %}
+    <h2>hooooop nabıyon</h2>
+{% endblock %}

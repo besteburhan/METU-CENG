@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    {%block head%}
+    {%endblock%}
+        <script
+          src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+          crossorigin="anonymous"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="shortcut icon" type="image/x-icon" href="{%static 'images/download.png'%}"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="{% url 'index' %}">Social Network for book and media sharing </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav navbar-right">
+                      {% if user.is_authenticated %}
+                        dfsfs
+                      <li >
+                        <a href="{%url 'social_network_app:logout' %}"  >
+                            <span class="glyphicon glyphicon-log-out" ></span> Logout</a>
+                      </li>
+                  {%else%}
+                      <li >
+                          <a href="{% url 'social_network_app:register' %}" >
+                      <span class="glyphicon glyphicon-user" ></span> Sign Up</a>
+                    </li>
+                      <li >
+                          <a href="{% url 'social_network_app:verification' %}" >
+                      <span class="glyphicon glyphicon-user" ></span> Verify your account </a>
+                    </li>
+                      <li>
+                        <a href="{%url 'social_network_app:login' %}" ><span class="glyphicon glyphicon-log-in" ></span> Sign In</a>
+                      </li>
+                  {%endif%}
+                </ul>
+          </div>
+        </nav>
+
+   {%if user.is_authenticated%}
+
+        <div class="container-fluid ">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar" style="width: auto">
+              <div class="sidebar-sticky" >
+                <ul class="nav flex-column">
+
+                    <li class="nav-item">
+{#                        <a class="nav-link" href="{% url 'social_network_app:edit_profile'  %}">#}
+                            <h4>{{user.first_name|capfirst}} {{user.last_name|capfirst}}</h4>
+{#                        </a>#}
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'social_network_app:users' request.user.pk %}" >
+                            My Items
+                        </a>
+                    </li>
+
+                    <li class="nav-item" >
+                        <a href="{% url 'social_network_app:friendships' %}" >
+                            Friends
+                        </a>
+                    </li>
+                    <li class="nav-item" >
+                        <a href="{% url 'social_network_app:borrow_requests' %}" >
+                            Borrows & Requests
+                        </a>
+                    </li>
+                    <li class="nav-item" >
+                        <a href="{% url 'social_network_app:all_items' %}" >
+                            All Items
+                        </a>
+                    </li>
+                    <li class="nav-item" >
+                        <a href="{% url 'social_network_app:all_users' %}" >
+                            All Users
+                        </a>
+                    </li>
+                    <li class="nav-item" >
+                        <a href="{% url 'social_network_app:notifications' %}" >
+                            Notifications
+                        </a>
+                    </li>
+                    <li class="nav-item" >
+                        <a href="{% url 'social_network_app:announcements' %}" >
+                            Announcements
+                        </a>
+                    </li>
+                </ul>
+              </div>
+            </nav>
+
+            <div class="col-sm-10 ">
+
+                    {% block block_for_authenticated_users%}
+                    {%endblock%}
+
+            </div>
+        </div>
+
+  {% else %}
+        {%block block_for_unauthenticated_users %}
+        {% endblock %}
+  {% endif %}
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block head %}
+
+
+    <link rel="stylesheet" href="{%static 'css/form.css'%}">
+
+{% endblock %}
+
+{%block block_for_unauthenticated_users%}
+
+    <div class="bg" >
+        <div class="container">
+            <div class="item">
+               <h4 style="color: #ffffff">Sign Up</h4>
+                <p style="text-align: center;">
+               <div class="flex-form">
+                  <form enctype="multipart/form-data" method="post">
+                     {% csrf_token %}
+                    {{user_form.as_p}}
+                      <button type="submit" value="Register" style="color: white">SIGN UP</button>
+                  </form>
+               </div>
+                </p>
+                  <p class="reg">Already registered? <a href="{%url 'social_network_app:login' %}" style="color: #ffffff">Sign In</a></p>
+            </div>
+        </div>
+
+
+</div>
+
+{% endblock %}
+

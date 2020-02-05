@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+
+{% load extras %}
+{% block block_for_authenticated_users %}
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <h3>Item Information</h3>
+    <table class="table table-striped">
+        <br>
+        <thead>
+          <tr>
+          {% check_detail_permission request.user item as detail_permission%}
+            {% check_view_permission request.user item as view_permission %}
+              {% if detail_permission %}
+              <th> Owner </th>
+              <th> Location </th>
+
+              {% endif %}
+            {% if view_permission %}
+              <th> Title </th>
+              <th> Type</th>
+              <th> Genre </th>
+              <th> Artist </th>
+              <th> Year </th>
+                {% else  %}
+                <h1>NO VİEW PERMISSION</h1>
+                <img src="/media/nanik.jpg" alt="">
+          {% endif %}
+          {% check_borrow_permission request.user item as borrow_permission %}
+          {% if borrow_permission %}
+              <th> Borrow Request</th>
+              {% endif %}
+
+            {% get_order_in_borrow_requests request.user item as order %}
+          {% if order %}
+                <th> Your Borrow Order </th>
+            {% endif %}
+          <th> Rate </th>
+          {% if item.owner == request.user %}
+          <th> View Permission </th>
+          <th> Detail Permission </th>
+          <th> Borrow Permission </th>
+          <th> Search Permission </th>
+          <th> Comment Permission </th>
+          {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% if detail_permission %}
+                <td><a href="/users/{{ item.owner.id}}/">{{ item.owner.first_name| capfirst}} {{ item.owner.last_name|capfirst }}</a></td>
+                <td>{% get_location_item request.user item %}</td>
+            {% endif %}
+
+            {% if view_permission %}
+                <td>{{ item.title}}</td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.genre }}</td>
+                <td>{{ item.artist }}</td>
+                <td>{{ item.year }}</td>
+          {% endif %}
+            {% if borrow_permission %}
+              <td>
+              <form action="/item/{{ item.id }}/" method="post">
+                     {% csrf_token %}
+                     <button type="submit" name="submit_type" value="borrow_req" class="btn btn-warning"> Send borrow request </button>
+
+            </form>
+              </td>
+              {% endif %}
+            {% if order %}
+                <td> {{ order }} </td>
+            {% endif %}
+            <td> {% get_rating item %}</td>
+            {%  if item.owner == request.user %}
+                <td>{% get_state_type item 'view' %} </td>
+                <td>{% get_state_type item 'detail' %}</td>
+                <td>{% get_state_type item 'borrow' %}</td>
+                <td>{% get_state_type item 'search' %}</td>
+                <td>{% get_state_type item 'comment' %}</td>
+          {% endif %}
+
+            </tr>
+
+        </tbody>
+    </table>
+
+    {% check_borrow_permission request.user item as borrow_permission %}
+    {% if borrow_permission %}
+        {% is_watching_borrow request.user item as is_watching %}
+            {% if is_watching %}
+                <form action="/item/{{ item.id }}/" method="post">
+                         {% csrf_token %}
+
+                         <button type="submit" name="submit_type" value="borrow_unwatching" class="btn btn-warning" > Unwatch Borrows </button>
+
+                </form>
+                {% else %}
+                     <form action="/item/{{ item.id }}/" method="post">
+                         {% csrf_token %}
+
+                         <button type="submit" name="submit_type" value="borrow_watching" class="btn btn-warning" > Watch Borrows </button>
+
+                    </form>
+
+                {% endif %}
+    {% endif %}
+
+    {% if item.owner == request.user %}
+    <br>
+        <hr>
+    <h3>Change state of the item</h3>
+
+         <form action="/item/{{ item.id }}/" method="post">
+                 {% csrf_token %}
+                 <div class="col-sm-5" >
+                     <label for="state_names"></label>
+                     <select name='state_names' class="form-control" id="state_names" >
+                      <option value="view" >View</option>
+                      <option value="detail" >Detail</option>
+                      <option value="borrow">Borrow</option>
+                      <option value="comment">Comment</option>
+                      <option value="search">Search</option>
+                    </select>
+                 </div>
+                 <div class="col-md-5">
+                    <label for="states"></label>
+                    <select name='states' class="form-control" id="states" >
+                      <option value="0" >Closed</option>
+                      <option value="1" >Close Friend</option>
+                      <option value="2">Friend</option>
+                      <option value="3">Everyone</option>
+                    </select>
+                 </div>
+                 <button type="submit" name="submit_type" value="set_state" class="btn btn-warning" style="margin-bottom: -50px;"> Change </button>
+
+            </form>
+        <br><br><br><br>
+        <hr>
+     <h3> Make announcement </h3>
+          <form action="/item/{{ item.id }}/" method="post">
+                 {% csrf_token %}
+
+                 <div class="col-md-5" style="margin-bottom: 30px;">
+                    <label for="states"></label>
+                    <select name='states' class="form-control" id="states" >
+                      <option value="1" >Close Friend</option>
+                      <option value="2">Friend</option>
+                    </select>
+                 </div>
+
+              <textarea  name="msg" class="form-control" rows="3" required style="margin-left: 15px; "></textarea>
+                 <button type="submit" name="submit_type" value="make_announcement" class="btn btn-warning" style="margin-bottom: -50px; margin-left: 15px;"> Submit </button>
+
+            </form>
+
+
+    {% endif %}
+
+    <br><br><br><br>
+    <hr>
+    <h3>Comments</h3>
+    {% check_comment_permission request.user item as comment_permission %}
+    {% if comment_permission %}
+    {% is_watching_comment request.user item as is_watching %}
+        {% if is_watching %}
+            <form action="/item/{{ item.id }}/" method="post">
+                     {% csrf_token %}
+
+                     <button type="submit" name="submit_type" value="comment_unwatching" class="btn btn-warning" > Unwatch Comments </button>
+
+            </form>
+            {% else %}
+                 <form action="/item/{{ item.id }}/" method="post">
+                     {% csrf_token %}
+
+                     <button type="submit" name="submit_type" value="comment_watching" class="btn btn-warning" > Watch Comments </button>
+
+                </form>
+
+            {% endif %}
+    {% endif %}
+    <br>
+
+    {% for comment in comments %}
+    <div id="comments">
+        <div class="card border-blue" id="comment_cards" >
+            <div class="card-header">
+                <div class="col-md-9 "><b>{{ comment.user.first_name }} {{ comment.user.last_name }}</b></div>
+                <div class="col-md-3 mb-2 text-muted" style="text-align: right;">{{ comment.date }}</div>
+            </div>
+          <div class="card-body">
+            <p id="card_text">{{ comment.text }}</p>
+          </div>
+        </div>
+        <br>
+    </div>
+    {% endfor %}
+    {% check_comment_permission request.user item as comment_permission %}
+    {% if comment_permission %}
+
+        <div class="container-fluid"  id="form_comment"  >
+            <form method="post" action="/item/{{ item.id }}/" name="comment_form">
+                {% csrf_token %}
+                <label for="textarea"></label>
+                <textarea  name="comment_text" class="form-control" id="text_area_id" rows="4" required  ></textarea>
+                  <button type="submit" value="save_comment" name="submit_type"  class="btn btn-warning" style="margin-top: 10px;">Comment</button>
+            </form>
+        </div>
+    {% endif %}
+
+
+
+{% endblock %}
+
+{% block block_for_unauthenticated_users %}
+    <h2>Önce git authenticate ol!!!! Lütfen.</h2>
+{% endblock %}

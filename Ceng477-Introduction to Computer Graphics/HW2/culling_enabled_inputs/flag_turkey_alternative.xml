@@ -1,0 +1,917 @@
+<Scene>
+	<BackgroundColor>227 10 23</BackgroundColor>
+	<Culling>1</Culling>
+    <ProjectionType>1</ProjectionType>
+	<Cameras>
+		<Camera id="1">
+			<Position>0 0 45</Position>
+			<Gaze>0 0 -1</Gaze>
+			<Up>0 1 0</Up>
+			<ImagePlane>-1 1 -1 1 2 1000 1000 1000</ImagePlane>
+			<OutputName>flag_turkey_alt_1.ppm</OutputName>
+		</Camera>
+		<Camera id="2">
+			<Position>0 50 10</Position>
+			<Gaze>0 -1 0</Gaze>
+			<Up>0 0 -1</Up>
+			<ImagePlane>-1 1 -1 1 2 1000 1000 1000</ImagePlane>
+			<OutputName>flag_turkey_alt_2.ppm</OutputName>
+		</Camera>
+	</Cameras>
+
+	<Vertices count="274">
+		<Vertex id="1" position="0 5.0 30.0" color="255 255 255" />
+        <Vertex id="2" position="-4.75528258148 1.54508497187 30.0" color="255 255 255" />
+        <Vertex id="3" position="-2.93892626146 -4.04508497187 30.0" color="255 255 255" />
+        <Vertex id="4" position="2.93892626146 -4.04508497187 30.0" color="255 255 255" />
+        <Vertex id="5" position="4.75528258148 1.54508497187 30.0" color="255 255 255" />
+        <Vertex id="6" position="-1.18882064537 1.63627124297 30.0" color="255 255 255" />
+        <Vertex id="7" position="-1.92355221073 -0.625 30.0" color="255 255 255" />
+        <Vertex id="8" position="0 -2.02254248594 30.0" color="255 255 255" />
+        <Vertex id="9" position="1.92355221073 -0.625 30.0" color="255 255 255" />
+        <Vertex id="10" position="1.18882064537 1.63627124297 30.0" color="255 255 255" />
+        <Vertex id="11" position="0 0 30.0" color="255 255 255" />
+        <Vertex id="12" position="0 0 25.0" color="20 20 20" />
+		
+
+        <Vertex id="13" position="-10.0 0.0 0.0" color="255 255 255" />
+        <Vertex id="14" position="-9.75 2.22204860433 0.0" color="255 255 255" />
+        <Vertex id="15" position="-9.5 3.1224989992 0.0" color="255 255 255" />
+        <Vertex id="16" position="-9.25 3.79967103839 0.0" color="255 255 255" />
+        <Vertex id="17" position="-9.0 4.35889894354 0.0" color="255 255 255" />
+        <Vertex id="18" position="-8.75 4.84122918276 0.0" color="255 255 255" />
+        <Vertex id="19" position="-8.5 5.26782687643 0.0" color="255 255 255" />
+        <Vertex id="20" position="-8.25 5.65132727773 0.0" color="255 255 255" />
+        <Vertex id="21" position="-8.0 6.0 0.0" color="255 255 255" />
+        <Vertex id="22" position="-7.75 6.31961232988 0.0" color="255 255 255" />
+        <Vertex id="23" position="-7.5 6.61437827766 0.0" color="255 255 255" />
+        <Vertex id="24" position="-7.25 6.88748865698 0.0" color="255 255 255" />
+        <Vertex id="25" position="-7.0 7.14142842854 0.0" color="255 255 255" />
+        <Vertex id="26" position="-6.75 7.37817728169 0.0" color="255 255 255" />
+        <Vertex id="27" position="-6.5 7.59934207679 0.0" color="255 255 255" />
+        <Vertex id="28" position="-6.25 7.806247498 0.0" color="255 255 255" />
+        <Vertex id="29" position="-6.0 8.0 0.0" color="255 255 255" />
+        <Vertex id="30" position="-5.75 8.18153408598 0.0" color="255 255 255" />
+        <Vertex id="31" position="-5.5 8.35164654425 0.0" color="255 255 255" />
+        <Vertex id="32" position="-5.25 8.51102226527 0.0" color="255 255 255" />
+        <Vertex id="33" position="-5.0 8.66025403784 0.0" color="255 255 255" />
+        <Vertex id="34" position="-4.75 8.7998579534 0.0" color="255 255 255" />
+        <Vertex id="35" position="-4.5 8.93028554975 0.0" color="255 255 255" />
+        <Vertex id="36" position="-4.25 9.05193349512 0.0" color="255 255 255" />
+        <Vertex id="37" position="-4.0 9.16515138991 0.0" color="255 255 255" />
+        <Vertex id="38" position="-3.75 9.27024810887 0.0" color="255 255 255" />
+        <Vertex id="39" position="-3.5 9.3674969976 0.0" color="255 255 255" />
+        <Vertex id="40" position="-3.25 9.45714015969 0.0" color="255 255 255" />
+        <Vertex id="41" position="-3.0 9.53939201417 0.0" color="255 255 255" />
+        <Vertex id="42" position="-2.75 9.61444226151 0.0" color="255 255 255" />
+        <Vertex id="43" position="-2.5 9.68245836552 0.0" color="255 255 255" />
+        <Vertex id="44" position="-2.25 9.74358763495 0.0" color="255 255 255" />
+        <Vertex id="45" position="-2.0 9.79795897113 0.0" color="255 255 255" />
+        <Vertex id="46" position="-1.75 9.84568433376 0.0" color="255 255 255" />
+        <Vertex id="47" position="-1.5 9.88685996664 0.0" color="255 255 255" />
+        <Vertex id="48" position="-1.25 9.92156741649 0.0" color="255 255 255" />
+        <Vertex id="49" position="-1.0 9.94987437107 0.0" color="255 255 255" />
+        <Vertex id="50" position="-0.75 9.97183533759 0.0" color="255 255 255" />
+        <Vertex id="51" position="-0.5 9.98749217772 0.0" color="255 255 255" />
+        <Vertex id="52" position="-0.25 9.99687451157 0.0" color="255 255 255" />
+        <Vertex id="53" position="0.0 10.0 0.0" color="255 255 255" />
+        <Vertex id="54" position="0.25 9.99687451157 0.0" color="255 255 255" />
+        <Vertex id="55" position="0.5 9.98749217772 0.0" color="255 255 255" />
+        <Vertex id="56" position="0.75 9.97183533759 0.0" color="255 255 255" />
+        <Vertex id="57" position="1.0 9.94987437107 0.0" color="255 255 255" />
+        <Vertex id="58" position="1.25 9.92156741649 0.0" color="255 255 255" />
+        <Vertex id="59" position="1.5 9.88685996664 0.0" color="255 255 255" />
+        <Vertex id="60" position="1.75 9.84568433376 0.0" color="255 255 255" />
+        <Vertex id="61" position="2.0 9.79795897113 0.0" color="255 255 255" />
+        <Vertex id="62" position="2.25 9.74358763495 0.0" color="255 255 255" />
+        <Vertex id="63" position="2.5 9.68245836552 0.0" color="255 255 255" />
+        <Vertex id="64" position="2.75 9.61444226151 0.0" color="255 255 255" />
+        <Vertex id="65" position="3.0 9.53939201417 0.0" color="255 255 255" />
+        <Vertex id="66" position="3.25 9.45714015969 0.0" color="255 255 255" />
+        <Vertex id="67" position="3.5 9.3674969976 0.0" color="255 255 255" />
+        <Vertex id="68" position="3.75 9.27024810887 0.0" color="255 255 255" />
+        <Vertex id="69" position="4.0 9.16515138991 0.0" color="255 255 255" />
+        <Vertex id="70" position="4.25 9.05193349512 0.0" color="255 255 255" />
+        <Vertex id="71" position="4.5 8.93028554975 0.0" color="255 255 255" />
+        <Vertex id="72" position="4.75 8.7998579534 0.0" color="255 255 255" />
+        <Vertex id="73" position="5.0 8.66025403784 0.0" color="255 255 255" />
+        <Vertex id="74" position="5.25 8.51102226527 0.0" color="255 255 255" />
+        <Vertex id="75" position="5.5 8.35164654425 0.0" color="255 255 255" />
+        <Vertex id="76" position="5.75 8.18153408598 0.0" color="255 255 255" />
+        <Vertex id="77" position="6.0 8.0 0.0" color="255 255 255" />
+        <Vertex id="78" position="6.25 7.806247498 0.0" color="255 255 255" />
+        <Vertex id="79" position="6.5 7.59934207679 0.0" color="255 255 255" />
+        <Vertex id="80" position="6.75 7.37817728169 0.0" color="255 255 255" />
+        <Vertex id="81" position="7.0 7.14142842854 0.0" color="255 255 255" />
+        <Vertex id="82" position="7.25 6.88748865698 0.0" color="255 255 255" />
+        <Vertex id="83" position="7.5 6.61437827766 0.0" color="255 255 255" />
+        <Vertex id="84" position="7.75 6.31961232988 0.0" color="255 255 255" />
+        <Vertex id="85" position="8.0 6.0 0.0" color="255 255 255" />
+        <Vertex id="86" position="8.25 5.65132727773 0.0" color="255 255 255" />
+        <Vertex id="87" position="8.5 5.26782687643 0.0" color="255 255 255" />
+        <Vertex id="88" position="8.75 4.84122918276 0.0" color="255 255 255" />
+        <Vertex id="89" position="9.0 4.35889894354 0.0" color="255 255 255" />
+        <Vertex id="90" position="9.25 3.79967103839 0.0" color="255 255 255" />
+        <Vertex id="91" position="9.5 3.1224989992 0.0" color="255 255 255" />
+        <Vertex id="92" position="9.75 2.22204860433 0.0" color="255 255 255" />
+        <Vertex id="93" position="10.0 0.0 0.0" color="255 255 255" />
+        <Vertex id="94" position="9.75 -2.22204860433 0.0" color="255 255 255" />
+        <Vertex id="95" position="9.5 -3.1224989992 0.0" color="255 255 255" />
+        <Vertex id="96" position="9.25 -3.79967103839 0.0" color="255 255 255" />
+        <Vertex id="97" position="9.0 -4.35889894354 0.0" color="255 255 255" />
+        <Vertex id="98" position="8.75 -4.84122918276 0.0" color="255 255 255" />
+        <Vertex id="99" position="8.5 -5.26782687643 0.0" color="255 255 255" />
+        <Vertex id="100" position="8.25 -5.65132727773 0.0" color="255 255 255" />
+        <Vertex id="101" position="8.0 -6.0 0.0" color="255 255 255" />
+        <Vertex id="102" position="7.75 -6.31961232988 0.0" color="255 255 255" />
+        <Vertex id="103" position="7.5 -6.61437827766 0.0" color="255 255 255" />
+        <Vertex id="104" position="7.25 -6.88748865698 0.0" color="255 255 255" />
+        <Vertex id="105" position="7.0 -7.14142842854 0.0" color="255 255 255" />
+        <Vertex id="106" position="6.75 -7.37817728169 0.0" color="255 255 255" />
+        <Vertex id="107" position="6.5 -7.59934207679 0.0" color="255 255 255" />
+        <Vertex id="108" position="6.25 -7.806247498 0.0" color="255 255 255" />
+        <Vertex id="109" position="6.0 -8.0 0.0" color="255 255 255" />
+        <Vertex id="110" position="5.75 -8.18153408598 0.0" color="255 255 255" />
+        <Vertex id="111" position="5.5 -8.35164654425 0.0" color="255 255 255" />
+        <Vertex id="112" position="5.25 -8.51102226527 0.0" color="255 255 255" />
+        <Vertex id="113" position="5.0 -8.66025403784 0.0" color="255 255 255" />
+        <Vertex id="114" position="4.75 -8.7998579534 0.0" color="255 255 255" />
+        <Vertex id="115" position="4.5 -8.93028554975 0.0" color="255 255 255" />
+        <Vertex id="116" position="4.25 -9.05193349512 0.0" color="255 255 255" />
+        <Vertex id="117" position="4.0 -9.16515138991 0.0" color="255 255 255" />
+        <Vertex id="118" position="3.75 -9.27024810887 0.0" color="255 255 255" />
+        <Vertex id="119" position="3.5 -9.3674969976 0.0" color="255 255 255" />
+        <Vertex id="120" position="3.25 -9.45714015969 0.0" color="255 255 255" />
+        <Vertex id="121" position="3.0 -9.53939201417 0.0" color="255 255 255" />
+        <Vertex id="122" position="2.75 -9.61444226151 0.0" color="255 255 255" />
+        <Vertex id="123" position="2.5 -9.68245836552 0.0" color="255 255 255" />
+        <Vertex id="124" position="2.25 -9.74358763495 0.0" color="255 255 255" />
+        <Vertex id="125" position="2.0 -9.79795897113 0.0" color="255 255 255" />
+        <Vertex id="126" position="1.75 -9.84568433376 0.0" color="255 255 255" />
+        <Vertex id="127" position="1.5 -9.88685996664 0.0" color="255 255 255" />
+        <Vertex id="128" position="1.25 -9.92156741649 0.0" color="255 255 255" />
+        <Vertex id="129" position="1.0 -9.94987437107 0.0" color="255 255 255" />
+        <Vertex id="130" position="0.75 -9.97183533759 0.0" color="255 255 255" />
+        <Vertex id="131" position="0.5 -9.98749217772 0.0" color="255 255 255" />
+        <Vertex id="132" position="0.25 -9.99687451157 0.0" color="255 255 255" />
+        <Vertex id="133" position="0.0 -10.0 0.0" color="255 255 255" />
+        <Vertex id="134" position="-0.25 -9.99687451157 0.0" color="255 255 255" />
+        <Vertex id="135" position="-0.5 -9.98749217772 0.0" color="255 255 255" />
+        <Vertex id="136" position="-0.75 -9.97183533759 0.0" color="255 255 255" />
+        <Vertex id="137" position="-1.0 -9.94987437107 0.0" color="255 255 255" />
+        <Vertex id="138" position="-1.25 -9.92156741649 0.0" color="255 255 255" />
+        <Vertex id="139" position="-1.5 -9.88685996664 0.0" color="255 255 255" />
+        <Vertex id="140" position="-1.75 -9.84568433376 0.0" color="255 255 255" />
+        <Vertex id="141" position="-2.0 -9.79795897113 0.0" color="255 255 255" />
+        <Vertex id="142" position="-2.25 -9.74358763495 0.0" color="255 255 255" />
+        <Vertex id="143" position="-2.5 -9.68245836552 0.0" color="255 255 255" />
+        <Vertex id="144" position="-2.75 -9.61444226151 0.0" color="255 255 255" />
+        <Vertex id="145" position="-3.0 -9.53939201417 0.0" color="255 255 255" />
+        <Vertex id="146" position="-3.25 -9.45714015969 0.0" color="255 255 255" />
+        <Vertex id="147" position="-3.5 -9.3674969976 0.0" color="255 255 255" />
+        <Vertex id="148" position="-3.75 -9.27024810887 0.0" color="255 255 255" />
+        <Vertex id="149" position="-4.0 -9.16515138991 0.0" color="255 255 255" />
+        <Vertex id="150" position="-4.25 -9.05193349512 0.0" color="255 255 255" />
+        <Vertex id="151" position="-4.5 -8.93028554975 0.0" color="255 255 255" />
+        <Vertex id="152" position="-4.75 -8.7998579534 0.0" color="255 255 255" />
+        <Vertex id="153" position="-5.0 -8.66025403784 0.0" color="255 255 255" />
+        <Vertex id="154" position="-5.25 -8.51102226527 0.0" color="255 255 255" />
+        <Vertex id="155" position="-5.5 -8.35164654425 0.0" color="255 255 255" />
+        <Vertex id="156" position="-5.75 -8.18153408598 0.0" color="255 255 255" />
+        <Vertex id="157" position="-6.0 -8.0 0.0" color="255 255 255" />
+        <Vertex id="158" position="-6.25 -7.806247498 0.0" color="255 255 255" />
+        <Vertex id="159" position="-6.5 -7.59934207679 0.0" color="255 255 255" />
+        <Vertex id="160" position="-6.75 -7.37817728169 0.0" color="255 255 255" />
+        <Vertex id="161" position="-7.0 -7.14142842854 0.0" color="255 255 255" />
+        <Vertex id="162" position="-7.25 -6.88748865698 0.0" color="255 255 255" />
+        <Vertex id="163" position="-7.5 -6.61437827766 0.0" color="255 255 255" />
+        <Vertex id="164" position="-7.75 -6.31961232988 0.0" color="255 255 255" />
+        <Vertex id="165" position="-8.0 -6.0 0.0" color="255 255 255" />
+        <Vertex id="166" position="-8.25 -5.65132727773 0.0" color="255 255 255" />
+        <Vertex id="167" position="-8.5 -5.26782687643 0.0" color="255 255 255" />
+        <Vertex id="168" position="-8.75 -4.84122918276 0.0" color="255 255 255" />
+        <Vertex id="169" position="-9.0 -4.35889894354 0.0" color="255 255 255" />
+        <Vertex id="170" position="-9.25 -3.79967103839 0.0" color="255 255 255" />
+        <Vertex id="171" position="-9.5 -3.1224989992 0.0" color="255 255 255" />
+        <Vertex id="172" position="-9.75 -2.22204860433 0.0" color="255 255 255" />
+        <Vertex id="173" position="-10.0 -0.0 0.0" color="255 255 255" />
+        <Vertex id="174" position="0.0 0.0 0.0" color="255 255 255" />
+        <Vertex id="175" position="0.0 0.0 -10.0" color="0 0 0" />
+
+        <Vertex id="176" position="-6.0 0.0 10.0" color="227 10 23" />
+        <Vertex id="177" position="-5.75 1.7139136501 10.0" color="227 10 23" />
+        <Vertex id="178" position="-5.5 2.39791576166 10.0" color="227 10 23" />
+        <Vertex id="179" position="-5.25 2.90473750966 10.0" color="227 10 23" />
+        <Vertex id="180" position="-5.0 3.31662479036 10.0" color="227 10 23" />
+        <Vertex id="181" position="-4.75 3.66571957465 10.0" color="227 10 23" />
+        <Vertex id="182" position="-4.5 3.9686269666 10.0" color="227 10 23" />
+        <Vertex id="183" position="-4.25 4.23526858652 10.0" color="227 10 23" />
+        <Vertex id="184" position="-4.0 4.472135955 10.0" color="227 10 23" />
+        <Vertex id="185" position="-3.75 4.6837484988 10.0" color="227 10 23" />
+        <Vertex id="186" position="-3.5 4.8733971724 10.0" color="227 10 23" />
+        <Vertex id="187" position="-3.25 5.04356025046 10.0" color="227 10 23" />
+        <Vertex id="188" position="-3.0 5.19615242271 10.0" color="227 10 23" />
+        <Vertex id="189" position="-2.75 5.33268225193 10.0" color="227 10 23" />
+        <Vertex id="190" position="-2.5 5.45435605732 10.0" color="227 10 23" />
+        <Vertex id="191" position="-2.25 5.56214886532 10.0" color="227 10 23" />
+        <Vertex id="192" position="-2.0 5.65685424949 10.0" color="227 10 23" />
+        <Vertex id="193" position="-1.75 5.73912014162 10.0" color="227 10 23" />
+        <Vertex id="194" position="-1.5 5.80947501931 10.0" color="227 10 23" />
+        <Vertex id="195" position="-1.25 5.86834729715 10.0" color="227 10 23" />
+        <Vertex id="196" position="-1.0 5.9160797831 10.0" color="227 10 23" />
+        <Vertex id="197" position="-0.75 5.9529404499 10.0" color="227 10 23" />
+        <Vertex id="198" position="-0.5 5.97913037155 10.0" color="227 10 23" />
+        <Vertex id="199" position="-0.25 5.99478940414 10.0" color="227 10 23" />
+        <Vertex id="200" position="0.0 6.0 10.0" color="227 10 23" />
+        <Vertex id="201" position="0.25 5.99478940414 10.0" color="227 10 23" />
+        <Vertex id="202" position="0.5 5.97913037155 10.0" color="227 10 23" />
+        <Vertex id="203" position="0.75 5.9529404499 10.0" color="227 10 23" />
+        <Vertex id="204" position="1.0 5.9160797831 10.0" color="227 10 23" />
+        <Vertex id="205" position="1.25 5.86834729715 10.0" color="227 10 23" />
+        <Vertex id="206" position="1.5 5.80947501931 10.0" color="227 10 23" />
+        <Vertex id="207" position="1.75 5.73912014162 10.0" color="227 10 23" />
+        <Vertex id="208" position="2.0 5.65685424949 10.0" color="227 10 23" />
+        <Vertex id="209" position="2.25 5.56214886532 10.0" color="227 10 23" />
+        <Vertex id="210" position="2.5 5.45435605732 10.0" color="227 10 23" />
+        <Vertex id="211" position="2.75 5.33268225193 10.0" color="227 10 23" />
+        <Vertex id="212" position="3.0 5.19615242271 10.0" color="227 10 23" />
+        <Vertex id="213" position="3.25 5.04356025046 10.0" color="227 10 23" />
+        <Vertex id="214" position="3.5 4.8733971724 10.0" color="227 10 23" />
+        <Vertex id="215" position="3.75 4.6837484988 10.0" color="227 10 23" />
+        <Vertex id="216" position="4.0 4.472135955 10.0" color="227 10 23" />
+        <Vertex id="217" position="4.25 4.23526858652 10.0" color="227 10 23" />
+        <Vertex id="218" position="4.5 3.9686269666 10.0" color="227 10 23" />
+        <Vertex id="219" position="4.75 3.66571957465 10.0" color="227 10 23" />
+        <Vertex id="220" position="5.0 3.31662479036 10.0" color="227 10 23" />
+        <Vertex id="221" position="5.25 2.90473750966 10.0" color="227 10 23" />
+        <Vertex id="222" position="5.5 2.39791576166 10.0" color="227 10 23" />
+        <Vertex id="223" position="5.75 1.7139136501 10.0" color="227 10 23" />
+        <Vertex id="224" position="6.0 0.0 10.0" color="227 10 23" />
+        <Vertex id="225" position="5.75 -1.7139136501 10.0" color="227 10 23" />
+        <Vertex id="226" position="5.5 -2.39791576166 10.0" color="227 10 23" />
+        <Vertex id="227" position="5.25 -2.90473750966 10.0" color="227 10 23" />
+        <Vertex id="228" position="5.0 -3.31662479036 10.0" color="227 10 23" />
+        <Vertex id="229" position="4.75 -3.66571957465 10.0" color="227 10 23" />
+        <Vertex id="230" position="4.5 -3.9686269666 10.0" color="227 10 23" />
+        <Vertex id="231" position="4.25 -4.23526858652 10.0" color="227 10 23" />
+        <Vertex id="232" position="4.0 -4.472135955 10.0" color="227 10 23" />
+        <Vertex id="233" position="3.75 -4.6837484988 10.0" color="227 10 23" />
+        <Vertex id="234" position="3.5 -4.8733971724 10.0" color="227 10 23" />
+        <Vertex id="235" position="3.25 -5.04356025046 10.0" color="227 10 23" />
+        <Vertex id="236" position="3.0 -5.19615242271 10.0" color="227 10 23" />
+        <Vertex id="237" position="2.75 -5.33268225193 10.0" color="227 10 23" />
+        <Vertex id="238" position="2.5 -5.45435605732 10.0" color="227 10 23" />
+        <Vertex id="239" position="2.25 -5.56214886532 10.0" color="227 10 23" />
+        <Vertex id="240" position="2.0 -5.65685424949 10.0" color="227 10 23" />
+        <Vertex id="241" position="1.75 -5.73912014162 10.0" color="227 10 23" />
+        <Vertex id="242" position="1.5 -5.80947501931 10.0" color="227 10 23" />
+        <Vertex id="243" position="1.25 -5.86834729715 10.0" color="227 10 23" />
+        <Vertex id="244" position="1.0 -5.9160797831 10.0" color="227 10 23" />
+        <Vertex id="245" position="0.75 -5.9529404499 10.0" color="227 10 23" />
+        <Vertex id="246" position="0.5 -5.97913037155 10.0" color="227 10 23" />
+        <Vertex id="247" position="0.25 -5.99478940414 10.0" color="227 10 23" />
+        <Vertex id="248" position="0.0 -6.0 10.0" color="227 10 23" />
+        <Vertex id="249" position="-0.25 -5.99478940414 10.0" color="227 10 23" />
+        <Vertex id="250" position="-0.5 -5.97913037155 10.0" color="227 10 23" />
+        <Vertex id="251" position="-0.75 -5.9529404499 10.0" color="227 10 23" />
+        <Vertex id="252" position="-1.0 -5.9160797831 10.0" color="227 10 23" />
+        <Vertex id="253" position="-1.25 -5.86834729715 10.0" color="227 10 23" />
+        <Vertex id="254" position="-1.5 -5.80947501931 10.0" color="227 10 23" />
+        <Vertex id="255" position="-1.75 -5.73912014162 10.0" color="227 10 23" />
+        <Vertex id="256" position="-2.0 -5.65685424949 10.0" color="227 10 23" />
+        <Vertex id="257" position="-2.25 -5.56214886532 10.0" color="227 10 23" />
+        <Vertex id="258" position="-2.5 -5.45435605732 10.0" color="227 10 23" />
+        <Vertex id="259" position="-2.75 -5.33268225193 10.0" color="227 10 23" />
+        <Vertex id="260" position="-3.0 -5.19615242271 10.0" color="227 10 23" />
+        <Vertex id="261" position="-3.25 -5.04356025046 10.0" color="227 10 23" />
+        <Vertex id="262" position="-3.5 -4.8733971724 10.0" color="227 10 23" />
+        <Vertex id="263" position="-3.75 -4.6837484988 10.0" color="227 10 23" />
+        <Vertex id="264" position="-4.0 -4.472135955 10.0" color="227 10 23" />
+        <Vertex id="265" position="-4.25 -4.23526858652 10.0" color="227 10 23" />
+        <Vertex id="266" position="-4.5 -3.9686269666 10.0" color="227 10 23" />
+        <Vertex id="267" position="-4.75 -3.66571957465 10.0" color="227 10 23" />
+        <Vertex id="268" position="-5.0 -3.31662479036 10.0" color="227 10 23" />
+        <Vertex id="269" position="-5.25 -2.90473750966 10.0" color="227 10 23" />
+        <Vertex id="270" position="-5.5 -2.39791576166 10.0" color="227 10 23" />
+        <Vertex id="271" position="-5.75 -1.7139136501 10.0" color="227 10 23" />
+        <Vertex id="272" position="-6.0 -0.0 10.0" color="227 10 23" />
+        <Vertex id="273" position="0.0 0.0 10.0" color="227 10 23" />
+        <Vertex id="274" position="0.0 0.0 8.0" color="0 0 0" />
+
+	</Vertices>
+
+	<Translations count="16">
+		<Translation id="1" value="1 0 0" />
+		<Translation id="2" value="-1 0 0" />
+		<Translation id="3" value="0.5 0 0" />
+		<Translation id="4" value="-0.5 0 0" />
+		<Translation id="5" value="0 1 0" />
+		<Translation id="6" value="0 -1 0" />
+		<Translation id="7" value="0 0.5 0" />
+		<Translation id="8" value="0 -0.5 0" />
+		<Translation id="9" value="0 0.25 0" />
+		<Translation id="10" value="0 -0.25 0" />
+		<Translation id="11" value="0.25 0 0" />
+		<Translation id="12" value="-0.25 0 0" />
+		<Translation id="13" value="10 0 0" />
+		<Translation id="14" value="-10 0 0" />
+		<Translation id="15" value="5 0 0" />
+		<Translation id="16" value="-5 0 0" />
+	</Translations>
+
+	<Scalings count="8">
+		<Scaling id="1" value="1.5 1.5 1.5" />
+		<Scaling id="2" value="5 5 5" />
+		<Scaling id="3" value="0.5 0.5 0.5" />
+		<Scaling id="4" value="2 2 2" />
+		<Scaling id="5" value="1.25 1.25 1.25" />
+		<Scaling id="6" value="0.8 0.8 0.8" />
+		<Scaling id="7" value="0.95 0.95 0.95" />
+		<Scaling id="8" value="1.4 1.4 1.4" />
+	</Scalings>
+
+	<Rotations count="11">
+		<Rotation id="1" value="180 1 0 0" />
+		<Rotation id="2" value="60 0 1 0" />
+		<Rotation id="3" value="60 0 0 1" />
+		<Rotation id="4" value="30 0 1 1" />
+		<Rotation id="5" value="45 0 0 0" />
+		<Rotation id="6" value="100 0 1 1" />
+		<Rotation id="7" value="72 0 0 1" />
+		<Rotation id="8" value="288 0 0 1" />
+		<Rotation id="9" value="144 0 0 1" />
+		<Rotation id="10" value="216 0 0 1" />
+		<Rotation id="11" value="306 0 0 1" />
+	</Rotations>
+
+	<Models count="3">
+
+		<Model id="1" type="0">
+			<Transformations count="3">
+				<Transformation>t 2</Transformation>
+				<Transformation>t 2</Transformation>
+				<Transformation>t 16</Transformation>
+			</Transformations>
+			<Triangles count="320">
+				<Triangle>174 14 13</Triangle>
+                <Triangle>174 15 14</Triangle>
+                <Triangle>174 16 15</Triangle>
+                <Triangle>174 17 16</Triangle>
+                <Triangle>174 18 17</Triangle>
+                <Triangle>174 19 18</Triangle>
+                <Triangle>174 20 19</Triangle>
+                <Triangle>174 21 20</Triangle>
+                <Triangle>174 22 21</Triangle>
+                <Triangle>174 23 22</Triangle>
+                <Triangle>174 24 23</Triangle>
+                <Triangle>174 25 24</Triangle>
+                <Triangle>174 26 25</Triangle>
+                <Triangle>174 27 26</Triangle>
+                <Triangle>174 28 27</Triangle>
+                <Triangle>174 29 28</Triangle>
+                <Triangle>174 30 29</Triangle>
+                <Triangle>174 31 30</Triangle>
+                <Triangle>174 32 31</Triangle>
+                <Triangle>174 33 32</Triangle>
+                <Triangle>174 34 33</Triangle>
+                <Triangle>174 35 34</Triangle>
+                <Triangle>174 36 35</Triangle>
+                <Triangle>174 37 36</Triangle>
+                <Triangle>174 38 37</Triangle>
+                <Triangle>174 39 38</Triangle>
+                <Triangle>174 40 39</Triangle>
+                <Triangle>174 41 40</Triangle>
+                <Triangle>174 42 41</Triangle>
+                <Triangle>174 43 42</Triangle>
+                <Triangle>174 44 43</Triangle>
+                <Triangle>174 45 44</Triangle>
+                <Triangle>174 46 45</Triangle>
+                <Triangle>174 47 46</Triangle>
+                <Triangle>174 48 47</Triangle>
+                <Triangle>174 49 48</Triangle>
+                <Triangle>174 50 49</Triangle>
+                <Triangle>174 51 50</Triangle>
+                <Triangle>174 52 51</Triangle>
+                <Triangle>174 53 52</Triangle>
+                <Triangle>174 54 53</Triangle>
+                <Triangle>174 55 54</Triangle>
+                <Triangle>174 56 55</Triangle>
+                <Triangle>174 57 56</Triangle>
+                <Triangle>174 58 57</Triangle>
+                <Triangle>174 59 58</Triangle>
+                <Triangle>174 60 59</Triangle>
+                <Triangle>174 61 60</Triangle>
+                <Triangle>174 62 61</Triangle>
+                <Triangle>174 63 62</Triangle>
+                <Triangle>174 64 63</Triangle>
+                <Triangle>174 65 64</Triangle>
+                <Triangle>174 66 65</Triangle>
+                <Triangle>174 67 66</Triangle>
+                <Triangle>174 68 67</Triangle>
+                <Triangle>174 69 68</Triangle>
+                <Triangle>174 70 69</Triangle>
+                <Triangle>174 71 70</Triangle>
+                <Triangle>174 72 71</Triangle>
+                <Triangle>174 73 72</Triangle>
+                <Triangle>174 74 73</Triangle>
+                <Triangle>174 75 74</Triangle>
+                <Triangle>174 76 75</Triangle>
+                <Triangle>174 77 76</Triangle>
+                <Triangle>174 78 77</Triangle>
+                <Triangle>174 79 78</Triangle>
+                <Triangle>174 80 79</Triangle>
+                <Triangle>174 81 80</Triangle>
+                <Triangle>174 82 81</Triangle>
+                <Triangle>174 83 82</Triangle>
+                <Triangle>174 84 83</Triangle>
+                <Triangle>174 85 84</Triangle>
+                <Triangle>174 86 85</Triangle>
+                <Triangle>174 87 86</Triangle>
+                <Triangle>174 88 87</Triangle>
+                <Triangle>174 89 88</Triangle>
+                <Triangle>174 90 89</Triangle>
+                <Triangle>174 91 90</Triangle>
+                <Triangle>174 92 91</Triangle>
+                <Triangle>174 93 92</Triangle>
+                <Triangle>174 94 93</Triangle>
+                <Triangle>174 95 94</Triangle>
+                <Triangle>174 96 95</Triangle>
+                <Triangle>174 97 96</Triangle>
+                <Triangle>174 98 97</Triangle>
+                <Triangle>174 99 98</Triangle>
+                <Triangle>174 100 99</Triangle>
+                <Triangle>174 101 100</Triangle>
+                <Triangle>174 102 101</Triangle>
+                <Triangle>174 103 102</Triangle>
+                <Triangle>174 104 103</Triangle>
+                <Triangle>174 105 104</Triangle>
+                <Triangle>174 106 105</Triangle>
+                <Triangle>174 107 106</Triangle>
+                <Triangle>174 108 107</Triangle>
+                <Triangle>174 109 108</Triangle>
+                <Triangle>174 110 109</Triangle>
+                <Triangle>174 111 110</Triangle>
+                <Triangle>174 112 111</Triangle>
+                <Triangle>174 113 112</Triangle>
+                <Triangle>174 114 113</Triangle>
+                <Triangle>174 115 114</Triangle>
+                <Triangle>174 116 115</Triangle>
+                <Triangle>174 117 116</Triangle>
+                <Triangle>174 118 117</Triangle>
+                <Triangle>174 119 118</Triangle>
+                <Triangle>174 120 119</Triangle>
+                <Triangle>174 121 120</Triangle>
+                <Triangle>174 122 121</Triangle>
+                <Triangle>174 123 122</Triangle>
+                <Triangle>174 124 123</Triangle>
+                <Triangle>174 125 124</Triangle>
+                <Triangle>174 126 125</Triangle>
+                <Triangle>174 127 126</Triangle>
+                <Triangle>174 128 127</Triangle>
+                <Triangle>174 129 128</Triangle>
+                <Triangle>174 130 129</Triangle>
+                <Triangle>174 131 130</Triangle>
+                <Triangle>174 132 131</Triangle>
+                <Triangle>174 133 132</Triangle>
+                <Triangle>174 134 133</Triangle>
+                <Triangle>174 135 134</Triangle>
+                <Triangle>174 136 135</Triangle>
+                <Triangle>174 137 136</Triangle>
+                <Triangle>174 138 137</Triangle>
+                <Triangle>174 139 138</Triangle>
+                <Triangle>174 140 139</Triangle>
+                <Triangle>174 141 140</Triangle>
+                <Triangle>174 142 141</Triangle>
+                <Triangle>174 143 142</Triangle>
+                <Triangle>174 144 143</Triangle>
+                <Triangle>174 145 144</Triangle>
+                <Triangle>174 146 145</Triangle>
+                <Triangle>174 147 146</Triangle>
+                <Triangle>174 148 147</Triangle>
+                <Triangle>174 149 148</Triangle>
+                <Triangle>174 150 149</Triangle>
+                <Triangle>174 151 150</Triangle>
+                <Triangle>174 152 151</Triangle>
+                <Triangle>174 153 152</Triangle>
+                <Triangle>174 154 153</Triangle>
+                <Triangle>174 155 154</Triangle>
+                <Triangle>174 156 155</Triangle>
+                <Triangle>174 157 156</Triangle>
+                <Triangle>174 158 157</Triangle>
+                <Triangle>174 159 158</Triangle>
+                <Triangle>174 160 159</Triangle>
+                <Triangle>174 161 160</Triangle>
+                <Triangle>174 162 161</Triangle>
+                <Triangle>174 163 162</Triangle>
+                <Triangle>174 164 163</Triangle>
+                <Triangle>174 165 164</Triangle>
+                <Triangle>174 166 165</Triangle>
+                <Triangle>174 167 166</Triangle>
+                <Triangle>174 168 167</Triangle>
+                <Triangle>174 169 168</Triangle>
+                <Triangle>174 170 169</Triangle>
+                <Triangle>174 171 170</Triangle>
+                <Triangle>174 172 171</Triangle>
+                <Triangle>174 173 172</Triangle>
+                <Triangle>175 13 14</Triangle>
+                <Triangle>175 14 15</Triangle>
+                <Triangle>175 15 16</Triangle>
+                <Triangle>175 16 17</Triangle>
+                <Triangle>175 17 18</Triangle>
+                <Triangle>175 18 19</Triangle>
+                <Triangle>175 19 20</Triangle>
+                <Triangle>175 20 21</Triangle>
+                <Triangle>175 21 22</Triangle>
+                <Triangle>175 22 23</Triangle>
+                <Triangle>175 23 24</Triangle>
+                <Triangle>175 24 25</Triangle>
+                <Triangle>175 25 26</Triangle>
+                <Triangle>175 26 27</Triangle>
+                <Triangle>175 27 28</Triangle>
+                <Triangle>175 28 29</Triangle>
+                <Triangle>175 29 30</Triangle>
+                <Triangle>175 30 31</Triangle>
+                <Triangle>175 31 32</Triangle>
+                <Triangle>175 32 33</Triangle>
+                <Triangle>175 33 34</Triangle>
+                <Triangle>175 34 35</Triangle>
+                <Triangle>175 35 36</Triangle>
+                <Triangle>175 36 37</Triangle>
+                <Triangle>175 37 38</Triangle>
+                <Triangle>175 38 39</Triangle>
+                <Triangle>175 39 40</Triangle>
+                <Triangle>175 40 41</Triangle>
+                <Triangle>175 41 42</Triangle>
+                <Triangle>175 42 43</Triangle>
+                <Triangle>175 43 44</Triangle>
+                <Triangle>175 44 45</Triangle>
+                <Triangle>175 45 46</Triangle>
+                <Triangle>175 46 47</Triangle>
+                <Triangle>175 47 48</Triangle>
+                <Triangle>175 48 49</Triangle>
+                <Triangle>175 49 50</Triangle>
+                <Triangle>175 50 51</Triangle>
+                <Triangle>175 51 52</Triangle>
+                <Triangle>175 52 53</Triangle>
+                <Triangle>175 53 54</Triangle>
+                <Triangle>175 54 55</Triangle>
+                <Triangle>175 55 56</Triangle>
+                <Triangle>175 56 57</Triangle>
+                <Triangle>175 57 58</Triangle>
+                <Triangle>175 58 59</Triangle>
+                <Triangle>175 59 60</Triangle>
+                <Triangle>175 60 61</Triangle>
+                <Triangle>175 61 62</Triangle>
+                <Triangle>175 62 63</Triangle>
+                <Triangle>175 63 64</Triangle>
+                <Triangle>175 64 65</Triangle>
+                <Triangle>175 65 66</Triangle>
+                <Triangle>175 66 67</Triangle>
+                <Triangle>175 67 68</Triangle>
+                <Triangle>175 68 69</Triangle>
+                <Triangle>175 69 70</Triangle>
+                <Triangle>175 70 71</Triangle>
+                <Triangle>175 71 72</Triangle>
+                <Triangle>175 72 73</Triangle>
+                <Triangle>175 73 74</Triangle>
+                <Triangle>175 74 75</Triangle>
+                <Triangle>175 75 76</Triangle>
+                <Triangle>175 76 77</Triangle>
+                <Triangle>175 77 78</Triangle>
+                <Triangle>175 78 79</Triangle>
+                <Triangle>175 79 80</Triangle>
+                <Triangle>175 80 81</Triangle>
+                <Triangle>175 81 82</Triangle>
+                <Triangle>175 82 83</Triangle>
+                <Triangle>175 83 84</Triangle>
+                <Triangle>175 84 85</Triangle>
+                <Triangle>175 85 86</Triangle>
+                <Triangle>175 86 87</Triangle>
+                <Triangle>175 87 88</Triangle>
+                <Triangle>175 88 89</Triangle>
+                <Triangle>175 89 90</Triangle>
+                <Triangle>175 90 91</Triangle>
+                <Triangle>175 91 92</Triangle>
+                <Triangle>175 92 93</Triangle>
+                <Triangle>175 93 94</Triangle>
+                <Triangle>175 94 95</Triangle>
+                <Triangle>175 95 96</Triangle>
+                <Triangle>175 96 97</Triangle>
+                <Triangle>175 97 98</Triangle>
+                <Triangle>175 98 99</Triangle>
+                <Triangle>175 99 100</Triangle>
+                <Triangle>175 100 101</Triangle>
+                <Triangle>175 101 102</Triangle>
+                <Triangle>175 102 103</Triangle>
+                <Triangle>175 103 104</Triangle>
+                <Triangle>175 104 105</Triangle>
+                <Triangle>175 105 106</Triangle>
+                <Triangle>175 106 107</Triangle>
+                <Triangle>175 107 108</Triangle>
+                <Triangle>175 108 109</Triangle>
+                <Triangle>175 109 110</Triangle>
+                <Triangle>175 110 111</Triangle>
+                <Triangle>175 111 112</Triangle>
+                <Triangle>175 112 113</Triangle>
+                <Triangle>175 113 114</Triangle>
+                <Triangle>175 114 115</Triangle>
+                <Triangle>175 115 116</Triangle>
+                <Triangle>175 116 117</Triangle>
+                <Triangle>175 117 118</Triangle>
+                <Triangle>175 118 119</Triangle>
+                <Triangle>175 119 120</Triangle>
+                <Triangle>175 120 121</Triangle>
+                <Triangle>175 121 122</Triangle>
+                <Triangle>175 122 123</Triangle>
+                <Triangle>175 123 124</Triangle>
+                <Triangle>175 124 125</Triangle>
+                <Triangle>175 125 126</Triangle>
+                <Triangle>175 126 127</Triangle>
+                <Triangle>175 127 128</Triangle>
+                <Triangle>175 128 129</Triangle>
+                <Triangle>175 129 130</Triangle>
+                <Triangle>175 130 131</Triangle>
+                <Triangle>175 131 132</Triangle>
+                <Triangle>175 132 133</Triangle>
+                <Triangle>175 133 134</Triangle>
+                <Triangle>175 134 135</Triangle>
+                <Triangle>175 135 136</Triangle>
+                <Triangle>175 136 137</Triangle>
+                <Triangle>175 137 138</Triangle>
+                <Triangle>175 138 139</Triangle>
+                <Triangle>175 139 140</Triangle>
+                <Triangle>175 140 141</Triangle>
+                <Triangle>175 141 142</Triangle>
+                <Triangle>175 142 143</Triangle>
+                <Triangle>175 143 144</Triangle>
+                <Triangle>175 144 145</Triangle>
+                <Triangle>175 145 146</Triangle>
+                <Triangle>175 146 147</Triangle>
+                <Triangle>175 147 148</Triangle>
+                <Triangle>175 148 149</Triangle>
+                <Triangle>175 149 150</Triangle>
+                <Triangle>175 150 151</Triangle>
+                <Triangle>175 151 152</Triangle>
+                <Triangle>175 152 153</Triangle>
+                <Triangle>175 153 154</Triangle>
+                <Triangle>175 154 155</Triangle>
+                <Triangle>175 155 156</Triangle>
+                <Triangle>175 156 157</Triangle>
+                <Triangle>175 157 158</Triangle>
+                <Triangle>175 158 159</Triangle>
+                <Triangle>175 159 160</Triangle>
+                <Triangle>175 160 161</Triangle>
+                <Triangle>175 161 162</Triangle>
+                <Triangle>175 162 163</Triangle>
+                <Triangle>175 163 164</Triangle>
+                <Triangle>175 164 165</Triangle>
+                <Triangle>175 165 166</Triangle>
+                <Triangle>175 166 167</Triangle>
+                <Triangle>175 167 168</Triangle>
+                <Triangle>175 168 169</Triangle>
+                <Triangle>175 169 170</Triangle>
+                <Triangle>175 170 171</Triangle>
+                <Triangle>175 171 172</Triangle>
+                <Triangle>175 172 173</Triangle>
+			</Triangles>
+		</Model>
+		<Model id="2" type="0">
+			<Transformations count="5">
+				<Transformation>t 2</Transformation>
+				<Transformation>t 2</Transformation>
+				<Transformation>t 2</Transformation>
+				<Transformation>t 4</Transformation>
+				<Transformation>t 11</Transformation>
+			</Transformations>
+			<Triangles count="192">
+				<Triangle>273 177 176</Triangle>
+                <Triangle>273 178 177</Triangle>
+                <Triangle>273 179 178</Triangle>
+                <Triangle>273 180 179</Triangle>
+                <Triangle>273 181 180</Triangle>
+                <Triangle>273 182 181</Triangle>
+                <Triangle>273 183 182</Triangle>
+                <Triangle>273 184 183</Triangle>
+                <Triangle>273 185 184</Triangle>
+                <Triangle>273 186 185</Triangle>
+                <Triangle>273 187 186</Triangle>
+                <Triangle>273 188 187</Triangle>
+                <Triangle>273 189 188</Triangle>
+                <Triangle>273 190 189</Triangle>
+                <Triangle>273 191 190</Triangle>
+                <Triangle>273 192 191</Triangle>
+                <Triangle>273 193 192</Triangle>
+                <Triangle>273 194 193</Triangle>
+                <Triangle>273 195 194</Triangle>
+                <Triangle>273 196 195</Triangle>
+                <Triangle>273 197 196</Triangle>
+                <Triangle>273 198 197</Triangle>
+                <Triangle>273 199 198</Triangle>
+                <Triangle>273 200 199</Triangle>
+                <Triangle>273 201 200</Triangle>
+                <Triangle>273 202 201</Triangle>
+                <Triangle>273 203 202</Triangle>
+                <Triangle>273 204 203</Triangle>
+                <Triangle>273 205 204</Triangle>
+                <Triangle>273 206 205</Triangle>
+                <Triangle>273 207 206</Triangle>
+                <Triangle>273 208 207</Triangle>
+                <Triangle>273 209 208</Triangle>
+                <Triangle>273 210 209</Triangle>
+                <Triangle>273 211 210</Triangle>
+                <Triangle>273 212 211</Triangle>
+                <Triangle>273 213 212</Triangle>
+                <Triangle>273 214 213</Triangle>
+                <Triangle>273 215 214</Triangle>
+                <Triangle>273 216 215</Triangle>
+                <Triangle>273 217 216</Triangle>
+                <Triangle>273 218 217</Triangle>
+                <Triangle>273 219 218</Triangle>
+                <Triangle>273 220 219</Triangle>
+                <Triangle>273 221 220</Triangle>
+                <Triangle>273 222 221</Triangle>
+                <Triangle>273 223 222</Triangle>
+                <Triangle>273 224 223</Triangle>
+                <Triangle>273 225 224</Triangle>
+                <Triangle>273 226 225</Triangle>
+                <Triangle>273 227 226</Triangle>
+                <Triangle>273 228 227</Triangle>
+                <Triangle>273 229 228</Triangle>
+                <Triangle>273 230 229</Triangle>
+                <Triangle>273 231 230</Triangle>
+                <Triangle>273 232 231</Triangle>
+                <Triangle>273 233 232</Triangle>
+                <Triangle>273 234 233</Triangle>
+                <Triangle>273 235 234</Triangle>
+                <Triangle>273 236 235</Triangle>
+                <Triangle>273 237 236</Triangle>
+                <Triangle>273 238 237</Triangle>
+                <Triangle>273 239 238</Triangle>
+                <Triangle>273 240 239</Triangle>
+                <Triangle>273 241 240</Triangle>
+                <Triangle>273 242 241</Triangle>
+                <Triangle>273 243 242</Triangle>
+                <Triangle>273 244 243</Triangle>
+                <Triangle>273 245 244</Triangle>
+                <Triangle>273 246 245</Triangle>
+                <Triangle>273 247 246</Triangle>
+                <Triangle>273 248 247</Triangle>
+                <Triangle>273 249 248</Triangle>
+                <Triangle>273 250 249</Triangle>
+                <Triangle>273 251 250</Triangle>
+                <Triangle>273 252 251</Triangle>
+                <Triangle>273 253 252</Triangle>
+                <Triangle>273 254 253</Triangle>
+                <Triangle>273 255 254</Triangle>
+                <Triangle>273 256 255</Triangle>
+                <Triangle>273 257 256</Triangle>
+                <Triangle>273 258 257</Triangle>
+                <Triangle>273 259 258</Triangle>
+                <Triangle>273 260 259</Triangle>
+                <Triangle>273 261 260</Triangle>
+                <Triangle>273 262 261</Triangle>
+                <Triangle>273 263 262</Triangle>
+                <Triangle>273 264 263</Triangle>
+                <Triangle>273 265 264</Triangle>
+                <Triangle>273 266 265</Triangle>
+                <Triangle>273 267 266</Triangle>
+                <Triangle>273 268 267</Triangle>
+                <Triangle>273 269 268</Triangle>
+                <Triangle>273 270 269</Triangle>
+                <Triangle>273 271 270</Triangle>
+                <Triangle>273 272 271</Triangle>
+                <Triangle>274 176 177</Triangle>
+                <Triangle>274 177 178</Triangle>
+                <Triangle>274 178 179</Triangle>
+                <Triangle>274 179 180</Triangle>
+                <Triangle>274 180 181</Triangle>
+                <Triangle>274 181 182</Triangle>
+                <Triangle>274 182 183</Triangle>
+                <Triangle>274 183 184</Triangle>
+                <Triangle>274 184 185</Triangle>
+                <Triangle>274 185 186</Triangle>
+                <Triangle>274 186 187</Triangle>
+                <Triangle>274 187 188</Triangle>
+                <Triangle>274 188 189</Triangle>
+                <Triangle>274 189 190</Triangle>
+                <Triangle>274 190 191</Triangle>
+                <Triangle>274 191 192</Triangle>
+                <Triangle>274 192 193</Triangle>
+                <Triangle>274 193 194</Triangle>
+                <Triangle>274 194 195</Triangle>
+                <Triangle>274 195 196</Triangle>
+                <Triangle>274 196 197</Triangle>
+                <Triangle>274 197 198</Triangle>
+                <Triangle>274 198 199</Triangle>
+                <Triangle>274 199 200</Triangle>
+                <Triangle>274 200 201</Triangle>
+                <Triangle>274 201 202</Triangle>
+                <Triangle>274 202 203</Triangle>
+                <Triangle>274 203 204</Triangle>
+                <Triangle>274 204 205</Triangle>
+                <Triangle>274 205 206</Triangle>
+                <Triangle>274 206 207</Triangle>
+                <Triangle>274 207 208</Triangle>
+                <Triangle>274 208 209</Triangle>
+                <Triangle>274 209 210</Triangle>
+                <Triangle>274 210 211</Triangle>
+                <Triangle>274 211 212</Triangle>
+                <Triangle>274 212 213</Triangle>
+                <Triangle>274 213 214</Triangle>
+                <Triangle>274 214 215</Triangle>
+                <Triangle>274 215 216</Triangle>
+                <Triangle>274 216 217</Triangle>
+                <Triangle>274 217 218</Triangle>
+                <Triangle>274 218 219</Triangle>
+                <Triangle>274 219 220</Triangle>
+                <Triangle>274 220 221</Triangle>
+                <Triangle>274 221 222</Triangle>
+                <Triangle>274 222 223</Triangle>
+                <Triangle>274 223 224</Triangle>
+                <Triangle>274 224 225</Triangle>
+                <Triangle>274 225 226</Triangle>
+                <Triangle>274 226 227</Triangle>
+                <Triangle>274 227 228</Triangle>
+                <Triangle>274 228 229</Triangle>
+                <Triangle>274 229 230</Triangle>
+                <Triangle>274 230 231</Triangle>
+                <Triangle>274 231 232</Triangle>
+                <Triangle>274 232 233</Triangle>
+                <Triangle>274 233 234</Triangle>
+                <Triangle>274 234 235</Triangle>
+                <Triangle>274 235 236</Triangle>
+                <Triangle>274 236 237</Triangle>
+                <Triangle>274 237 238</Triangle>
+                <Triangle>274 238 239</Triangle>
+                <Triangle>274 239 240</Triangle>
+                <Triangle>274 240 241</Triangle>
+                <Triangle>274 241 242</Triangle>
+                <Triangle>274 242 243</Triangle>
+                <Triangle>274 243 244</Triangle>
+                <Triangle>274 244 245</Triangle>
+                <Triangle>274 245 246</Triangle>
+                <Triangle>274 246 247</Triangle>
+                <Triangle>274 247 248</Triangle>
+                <Triangle>274 248 249</Triangle>
+                <Triangle>274 249 250</Triangle>
+                <Triangle>274 250 251</Triangle>
+                <Triangle>274 251 252</Triangle>
+                <Triangle>274 252 253</Triangle>
+                <Triangle>274 253 254</Triangle>
+                <Triangle>274 254 255</Triangle>
+                <Triangle>274 255 256</Triangle>
+                <Triangle>274 256 257</Triangle>
+                <Triangle>274 257 258</Triangle>
+                <Triangle>274 258 259</Triangle>
+                <Triangle>274 259 260</Triangle>
+                <Triangle>274 260 261</Triangle>
+                <Triangle>274 261 262</Triangle>
+                <Triangle>274 262 263</Triangle>
+                <Triangle>274 263 264</Triangle>
+                <Triangle>274 264 265</Triangle>
+                <Triangle>274 265 266</Triangle>
+                <Triangle>274 266 267</Triangle>
+                <Triangle>274 267 268</Triangle>
+                <Triangle>274 268 269</Triangle>
+                <Triangle>274 269 270</Triangle>
+                <Triangle>274 270 271</Triangle>
+                <Triangle>274 271 272</Triangle>
+			</Triangles>
+		</Model>
+
+        <Model id="3" type="0">
+			<Transformations count="5">
+				<Transformation>s 3</Transformation>
+				<Transformation>s 7</Transformation>
+				<Transformation>r 11</Transformation>
+				<Transformation>t 15</Transformation>
+				<Transformation>t 2</Transformation>
+			</Transformations>
+			<Triangles count="20">
+				<Triangle>1 6 10</Triangle>
+                <Triangle>2 7 6</Triangle>
+                <Triangle>3 8 7</Triangle>
+                <Triangle>4 9 8</Triangle>
+                <Triangle>5 10 9</Triangle>
+                <Triangle>11 10 6</Triangle>
+                <Triangle>11 9 10</Triangle>
+                <Triangle>11 8 9</Triangle>
+                <Triangle>11 7 8</Triangle>
+                <Triangle>11 6 7</Triangle>
+                <Triangle>1 10 12</Triangle>
+                <Triangle>1 12 6</Triangle>
+                <Triangle>5 12 10</Triangle>
+                <Triangle>5 9 12</Triangle>
+                <Triangle>4 12 9</Triangle>
+                <Triangle>4 8 12</Triangle>
+                <Triangle>3 12 8</Triangle>
+                <Triangle>3 7 12</Triangle>
+                <Triangle>2 12 7</Triangle>
+                <Triangle>2 6 12</Triangle>
+                <Triangle>1 12 6</Triangle>
+			</Triangles>
+		</Model>
+		
+	</Models>
+
+</Scene>

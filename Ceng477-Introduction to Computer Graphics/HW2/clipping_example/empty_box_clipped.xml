@@ -1,0 +1,73 @@
+<Scene>
+	<BackgroundColor>255 255 255</BackgroundColor>
+	<Culling>1</Culling>
+	<ProjectionType>1</ProjectionType>
+	<Cameras>
+		<Camera id="1">
+			<Position>40 0 -30</Position>
+			<Gaze>-0.5 -0.3 -0.3</Gaze>
+			<Up>0 1 0</Up>
+			<ImagePlane>-1 1 -1 1 2 1000 700 700</ImagePlane>
+			<OutputName>empty_box_clipped_1.ppm</OutputName>
+		</Camera>
+		<Camera id="2">
+			<Position>40 0 -30</Position>
+			<Gaze>-0.5 -0.3 0.3</Gaze>
+			<Up>0 1 0</Up>
+			<ImagePlane>-1 1 -1 1 2 1000 700 700</ImagePlane>
+			<OutputName>empty_box_clipped_2.ppm</OutputName>
+		</Camera>
+	</Cameras>
+
+	<Vertices count="8">
+		<Vertex id="1" position="1.0 1.0 -1.0" color="100 100 100" />
+		<Vertex id="2" position="-1.0 1.0 -1.0" color="255 0 0" />
+		<Vertex id="3" position="-1.0 1.0 1.0" color="0 255 0" />
+		<Vertex id="4" position="1.0 1.0 1.0" color="0 0 255" />
+		<Vertex id="5" position="1.0 -1.0 -1.0" color="255 150 0" />
+		<Vertex id="6" position="-1.0 -1.0 -1.0" color="100 255 0" />
+		<Vertex id="7" position="-1.0 -1.0 1.0" color="255 0 255" />
+		<Vertex id="8" position="1.0 -1.0 1.0" color="10 10 10" />
+	</Vertices>
+
+	<Translations count="2">
+		<Translation id="1" value="0.0 10.0 0.0" />
+		<Translation id="2" value="3.0 -3.0 -6.0" />
+	</Translations>
+
+	<Scalings count="1">
+		<Scaling id="1" value="5.2 5.2 5.2" />
+	</Scalings>
+
+	<Rotations count="3">
+		<Rotation id="1" value="45 0.0 1.0 0.0" />
+		<Rotation id="2" value="60 0.8 0.6 0.0" />
+		<Rotation id="3" value="20 1.0 0.0 0.0" />
+	</Rotations>
+
+	<Models count="1">
+
+		<Model id="1" type="0">
+			<Transformations count="3">
+				<Transformation>r 1</Transformation>
+				<Transformation>t 2</Transformation>
+				<Transformation>s 1</Transformation>
+			</Transformations>
+			<Triangles count="12">
+				<Triangle>7 8 4</Triangle>
+				<Triangle>7 4 3</Triangle>
+				<Triangle>8 5 1</Triangle>
+				<Triangle>8 1 4</Triangle>
+				<Triangle>6 3 2</Triangle>
+				<Triangle>6 7 3</Triangle>
+				<Triangle>3 4 1</Triangle>
+				<Triangle>3 1 2</Triangle>
+				<Triangle>6 2 5</Triangle>
+				<Triangle>2 1 5</Triangle>
+				<Triangle>5 8 6</Triangle>
+				<Triangle>7 6 8</Triangle>
+			</Triangles>
+		</Model>
+	</Models>
+
+</Scene>

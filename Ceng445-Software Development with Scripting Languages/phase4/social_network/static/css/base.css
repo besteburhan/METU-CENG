@@ -1,0 +1,57 @@
+
+body, html {
+    /*height: 100%;*/
+    margin: 0;
+}
+.navbar-brand,
+.nav-link,
+.mdi{
+    color:  #123 !important;
+}
+
+.navbar {
+    height: 5vh;
+    background: transparent;
+    font-family: 'Roboto', serif;
+    z-index: 1;
+}
+.navbar-link {
+
+}
+
+.bg {
+    /* The image used */
+    /*background-image: url("/media/oldbook.jpg");*/
+    background-color: #e2e3e8;
+    position: relative;
+    /* Full height */
+    min-height: 100vh;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+
+    margin-top: -5vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat-y !important;
+    background-size: cover;
+
+}
+
+table {
+    background: #fefdff;
+    color: #ffffff;
+
+
+}
+table th{
+    background: #373f51;
+    color: #ffffff;
+}
+table td,tr {
+    color: #67727e;
+    }
+
+table a{
+    color: #555f69;
+}

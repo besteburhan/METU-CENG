@@ -1,0 +1,90 @@
+<Scene>
+    <MaxRecursionDepth>6</MaxRecursionDepth>
+    <IntersectionTestEpsilon>1e-6</IntersectionTestEpsilon>
+    <BackgroundColor>0 0 0</BackgroundColor>
+
+    <Cameras>
+	<Camera id="1">
+		<Position>0 5 25</Position>
+		<Gaze>0 0 -1</Gaze>
+		<Up>0 1 0</Up>
+        <NearPlane>-1 1 -1 1</NearPlane>
+        <NearDistance>1</NearDistance>
+        <ImageResolution>800 800</ImageResolution>
+		<ImageName>output05_1.ppm</ImageName>
+	</Camera>
+    <Camera id="2">
+        <Position>0 5 35</Position>
+        <Gaze>0 0 -1</Gaze>
+        <Up>0 1 0</Up>
+        <NearPlane>-1 1 -1 1</NearPlane>
+        <NearDistance>1</NearDistance>
+        <ImageResolution>800 800</ImageResolution>
+        <ImageName>output05_2.ppm</ImageName>
+    </Camera>
+    </Cameras>
+
+    <Lights>
+        <AmbientLight>25 25 25</AmbientLight>
+        <PointLight id="1">
+            <Position>0 30 50</Position>
+            <Intensity>1000000 1000000 1000000</Intensity>
+        </PointLight>
+    </Lights>
+
+    <Materials>
+        <Material id="1">
+            <AmbientReflectance>1 1 1</AmbientReflectance>
+            <DiffuseReflectance>1 1 1</DiffuseReflectance>
+            <SpecularReflectance>1 1 1</SpecularReflectance>
+            <PhongExponent>1</PhongExponent>
+        </Material>
+        <Material id="2">
+            <AmbientReflectance>1 1 1</AmbientReflectance>
+            <DiffuseReflectance>1 0 0</DiffuseReflectance>
+            <SpecularReflectance>1 1 1</SpecularReflectance>
+            <PhongExponent>100</PhongExponent>
+        </Material>
+    </Materials>
+
+    <VertexData>
+        -100 0  100
+         100 0  100
+         100 0 -100
+        -100 0 -100 
+        -10 5 10
+          0 5 0
+         15 5 -10
+         50 5 -40
+    </VertexData>
+
+    <Objects>
+        <Mesh id="1">
+            <Material>1</Material>
+            <Faces>
+                3 1 2
+                1 3 4
+            </Faces>
+        </Mesh>
+        <Sphere id="1">
+            <Material>2</Material>
+            <Center>5</Center>
+            <Radius>5</Radius>
+        </Sphere>
+        <Sphere id="2">
+            <Material>2</Material>
+            <Center>6</Center>
+            <Radius>5</Radius>
+        </Sphere>
+        <Sphere id="3">
+            <Material>2</Material>
+            <Center>7</Center>
+            <Radius>5</Radius>
+        </Sphere>
+        <Sphere id="4">
+            <Material>2</Material>
+            <Center>8</Center>
+            <Radius>5</Radius>
+        </Sphere>
+    </Objects>
+</Scene>

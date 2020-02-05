@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+
+    {%block head%}
+    {%endblock%}
+        <script
+          src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+          crossorigin="anonymous"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="shortcut icon" type="image/x-icon" href="{%static 'media/download.png'%}"/>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+        <link href="https://cdn.materialdesignicons.com/4.7.95/css/materialdesignicons.min.css" rel="stylesheet">
+{#      <link href="https://fonts.googleapis.com/css?family=Roboto:900&display=swap" rel="stylesheet">#}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+      <script>
+        var announceSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/announcement/' );
+
+        announceSocket.onmessage = function(e) {
+            var data = JSON.parse(e.data);
+            var announcement_id = data['announcement_ids'];
+            console.log("Mesaj alındıııı; ",data );
+            $.ajax({
+                type: 'get',
+                url: "{% url 'social_network_app:see-announcement'  %}",
+                data: {
+                    'announcement_ids': announcement_id,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response['message'] != "") {
+
+                        $('#notifications').text(response['message'])
+                            .css({
+                                position: "fixed", bottom: "10px",
+                                right: "5px", padding: "15px", "border-radius": "8px",
+                                "box-shadow": "4px 4px 2px #808080", 'background-color': "#ff8c14"
+                            })
+                            .fadeIn().delay(3000).slideUp();
+                    }
+
+                },
+                error: function (data) {
+                  alert("error ");
+                },
+            });
+        };
+
+        announceSocket.onclose = function(e) {
+            console.error('Announcement socket closed unexpectedly');
+        };
+
+      </script>
+
+
+  <script>
+        var notificationSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/notification/' );
+
+        notificationSocket.onmessage = function(e) {
+            console.log("loloooooooooooooooooooooooo");
+            var data = JSON.parse(e.data);
+            var notification_id = data['notification_ids'];
+            console.log("not_id : ", notification_id);
+            $.ajax({
+                type: 'get',
+                url: "{% url 'social_network_app:see-notification'  %}",
+                data: {
+                    'notification_ids': notification_id,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response['message'] != "") {
+
+                        $('#notifications').text(response['message'])
+                            .css({
+                                position: "fixed",  bottom: "10px",
+                                right: "5px", padding: "15px", "border-radius": "8px",
+                                "box-shadow": "4px 4px 2px #808080", 'background-color': "#ff8c14"
+                            })
+                            .fadeIn().delay(3000).slideUp();
+                    }
+
+                },
+                error: function (data) {
+                  alert("error ");
+                },
+            });
+        };
+
+        notificationSocket.onclose = function(e) {
+            console.error('Notification socket closed unexpectedly');
+        };
+
+      </script>
+
+
+
+  </head>
+
+  <body>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light " id="navigation-bar" >
+      {% if user.is_authenticated %}
+          <a class="navbar-brand" href="{% url 'index' %}">{{user.first_name|capfirst}} {{user.last_name|capfirst}}</a>
+
+      {% else %}
+          <a class="navbar-brand" href="{% url 'index' %}" > Online Book and Media Sharing </a>
+      {% endif %}
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" >
+{#                #}
+                {% if user.is_authenticated %}
+              <li class="nav-item active">
+                <a class="dropdown-item" href="{% url 'social_network_app:users' request.user.pk %}" >
+                                My Items
+                            </a>
+              </li>
+              <li class="nav-item active">
+               <a class="dropdown-item" href="{% url 'social_network_app:friendships'  %}" >
+                                Friends
+                            </a>
+              </li>
+              <li class="nav-item active">
+
+                        <a class="dropdown-item" href="{% url 'social_network_app:borrow_requests' %}" >
+                                Borrows & Requests
+                            </a>
+              </li>
+              <li class="nav-item active">
+               <a class="dropdown-item" href="{% url 'social_network_app:all_items' %}" >
+                                All Items
+                            </a>
+              </li>
+              <li class="nav-item active">
+                <a class="dropdown-item" href="{% url 'social_network_app:all_users' %}" >
+                                All Users
+                            </a>
+              </li>
+              <li class="nav-item active">
+                 <a class="dropdown-item" href="{% url 'social_network_app:notifications' %}" >
+                                Notifications
+                            </a>
+              </li>
+              <li class="nav-item active">
+
+                        <a class="dropdown-item" href="{% url 'social_network_app:announcements' %}" >
+                                Announcements
+                            </a>
+              </li>
+{#              <li class="nav-item dropdown">#}
+{#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                      Actions#}
+{#                    </a>#}
+{#                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#                      <div class="dropdown-divider"></div>#}
+{#                      <a class="dropdown-item" href="#">Change Password</a>#}
+{#                    </div>#}
+{#              </li>#}
+
+                  {%endif%}
+
+            </ul>
+            <ul class="navbar-nav ml-auto" >
+{#                #}
+                {% if user.is_authenticated %}
+
+                  <li class="nav-item">
+                        <a class="nav-link" href="{%url 'social_network_app:logout' %}"  >
+                            <span class="mdi mdi-logout"></span> Logout</a>
+                      </li>
+                  {%else%}
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'social_network_app:register' %}" >
+                              <span class="mdi mdi-account-plus"></span>
+                      <span class="glyphicon glyphicon-user" ></span> Sign Up</a>
+                    </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'social_network_app:verification' %}" >
+                      <span class="mdi mdi-shield-check"></span></span> Verify account </a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{%url 'social_network_app:login' %}" ><span class="mdi mdi-login"></span></span> Sign In</a>
+                      </li>
+                  {%endif%}
+
+            </ul>
+
+          </div>
+        </nav>
+
+    {#####################################}
+
+   {%if user.is_authenticated%}
+    <div class="bg">
+            <div class="container-fluid ">
+            {# #################### #}
+
+
+                        {% block block_for_authenticated_users%}
+                        {%endblock%}
+
+            </div>
+            <div id="notifications"></div>
+    </div>
+  {% else %}
+        {%block block_for_unauthenticated_users %}
+        {% endblock %}
+  {% endif %}
+  </body>
+</html>

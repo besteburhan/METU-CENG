@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block block_for_authenticated_users %}
+{% load extras %}
+    <h3>Friends</h3>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+	      <th> First Name </th>
+	      <th> Last Name </th>
+	      <th> Relationships </th>
+      </tr>
+    </thead>
+    <tbody>
+	{% for friend in friends %}
+		<tr>
+        {% if friend.receiver_user != request.user %}
+			<td>{{ friend.receiver_user.first_name|capfirst }}</td>
+			<td> {{ friend.receiver_user.last_name|capfirst }} </td>
+			<td>{% get_state friend.state %}</td>
+        {% else %}
+            <td>{{ friend.sender_user.first_name|capfirst }}</td>
+			<td> {{ friend.sender_user.last_name|capfirst }} </td>
+			<td>{% get_state friend.state %}</td>
+        {% endif %}
+
+		</tr>
+	{% endfor %}
+
+    </tbody>
+  </table>
+    <br>
+    <h3>Friend Request</h3>
+    <br>
+     <table class="table table-striped">
+    <thead>
+      <tr>
+	      <th> First Name </th>
+	      <th> Last Name </th>
+	      <th> Set Relationships</th>
+	      <th> </th>
+
+      </tr>
+    </thead>
+    <tbody>
+	{% for friend in friend_requests%}
+		<tr>
+            {% if friend.receiver_user != request.user %}
+                <td>{{ friend.receiver_user.first_name|capfirst }}</td>
+                <td> {{ friend.receiver_user.last_name|capfirst }} </td>
+                <td>
+                     <div class="form-group col-sm-4" >
+                         <form action="/friendships/" method="post">
+                             {% csrf_token %}
+                             <div class="col-sm-10" style="margin-top: -20px">
+
+                                 <input name="friend_id" type="text" hidden value="{{ friend.id }}">
+                                <label for="states"></label>
+                                <select name='selectpicker' class="form-control" id="states">
+                                  <option value="0" >Pending</option>
+                                  <option value="1">Close Friend</option>
+                                  <option value="2 ">Friend</option>
+                                </select>
+                             </div>
+                                <div class="col-sm-2">
+                             <button type="submit" class="btn btn-warning"> Save </button>
+                                </div>
+                        </form>
+                     </div>
+                </td>
+        {% else %}
+                <td>{{ friend.sender_user.first_name|capfirst }}</td>
+                <td> {{ friend.sender_user.last_name|capfirst }} </td>
+                <td>
+                     <div class="form-group col-sm-4" >
+                         <form action="/friendships/" method="post">
+                             {% csrf_token %}
+                             <div class="col-sm-10" style="margin-top: -20px">
+
+                                 <input name="friend_id" type="text" hidden value="{{ friend.id }}">
+                                <label for="states"></label>
+                                <select name='selectpicker' class="form-control" id="states">
+                                  <option value="0" >Pending</option>
+                                  <option value="1">Close Friend</option>
+                                  <option value="2 ">Friend</option>
+                                </select>
+                             </div>
+                                <div class="col-sm-2">
+                             <button type="submit" class="btn btn-warning"> Save </button>
+                                </div>
+                        </form>
+                     </div>
+                </td>
+        {% endif %}
+
+		</tr>
+	{% endfor %}
+
+    </tbody>
+  </table>
+
+{% endblock %}
+
+{% block block_for_unauthenticated_users %}
+    <h2>hooooop nabıyon</h2>
+{% endblock %}

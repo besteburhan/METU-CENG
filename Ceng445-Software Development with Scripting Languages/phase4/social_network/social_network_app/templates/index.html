@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+
+    <link rel="stylesheet" href="{%static 'css/form.css'%}">
+{% endblock %}
+{% block block_for_authenticated_users %}
+        <br>
+            {% if messages %}
+              <ul class="messages">
+                {% for message in messages %}
+                  <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+{#    <div class="container">#}
+{#        <div class="item">#}
+{#        <div class="flex-form">#}
+{#             <form action="" method="post">#}
+{#                     {% csrf_token %}#}
+{#                 <label for="old_pass" style="color: #ffffff"> Old Password</label>#}
+{#                    <input type="password" name="old_password" id="old_pass" >#}
+{#                 <label for="new_pass" style="color: #ffffff"> New Password</label>#}
+{#                    <input type="password" name="new_password"  id="new_pass">#}
+{#                    <button type="submit" name="submit_type" value="change_password" style="margin-top: 5px;"> Change Password </button>#}
+{##}
+{#            </form>#}
+{#        </div>#}
+{#        </div>#}
+{#    </div>#}
+
+{% endblock %}
+
+{% block block_for_unauthenticated_users %}
+        <div id="carouselExampleIndicators"  data-ride="carousel" style="background: url('/media/book.jpg'); background-position: top; background-size: cover;height: 100vh;">
+              <img src="/media/book.jpg" class="d-block w-100" style="height: 100vh;margin-top: -5vh" alt="...">
+        </div>
+    <p style="text-align: center">
+        <h1 style="padding:10px;background-color: #0b2e13;position: absolute; color: #ffffff;
+            top:  50%;
+            left: 50%;
+            transform: translate(-50%,-50%);font-family: 'Lora', serif;"> WELCOME TO YOUR ONLINE LIBRARY! </h1>
+    </p>
+{% endblock %}
