@@ -12,7 +12,7 @@ ipywidgets==7.5.1
 isbnlib==3.9.9
 isbntools==4.3.20
 jedi==0.15.1
-Jinja2==2.10.3
+Jinja2==2.11.3
 jsonschema==3.1.1
 jupyter==1.0.0
 jupyter-client==5.3.4
